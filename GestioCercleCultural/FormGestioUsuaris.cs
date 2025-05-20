@@ -287,9 +287,9 @@ namespace GestioCercleCultural
             this.roundedButtonEliminarReserva.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.roundedButtonEliminarReserva.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
             this.roundedButtonEliminarReserva.ForeColor = System.Drawing.Color.Black;
-            this.roundedButtonEliminarReserva.Location = new System.Drawing.Point(643, 165);
+            this.roundedButtonEliminarReserva.Location = new System.Drawing.Point(643, 162);
             this.roundedButtonEliminarReserva.Name = "roundedButtonEliminarReserva";
-            this.roundedButtonEliminarReserva.Size = new System.Drawing.Size(122, 40);
+            this.roundedButtonEliminarReserva.Size = new System.Drawing.Size(122, 45);
             this.roundedButtonEliminarReserva.TabIndex = 3;
             this.roundedButtonEliminarReserva.Text = "Eliminar Reserva";
             this.roundedButtonEliminarReserva.UseVisualStyleBackColor = false;
@@ -354,6 +354,7 @@ namespace GestioCercleCultural
 
                 // Añadir fila vacía para selección
                 DataRow newRow = usuaris.NewRow();
+                newRow["id"] = -1; // Añadir ID
                 newRow["nom"] = "Seleccionar usuari";
                 newRow["email"] = "";
                 usuaris.Rows.InsertAt(newRow, 0);
@@ -374,7 +375,13 @@ namespace GestioCercleCultural
             {
                 DataRowView row = (DataRowView)comboBoxSeleccionarUsuari.SelectedItem;
 
-                if (row["email"].ToString() == "") // Item de selección
+                // Mostrar/ocultar controles de reservas
+                bool esSeleccionarUsuario = (row["email"].ToString() == "");
+                comboBoxConSombraReserves.Visible = !esSeleccionarUsuario;
+                labelReserves.Visible = !esSeleccionarUsuario;
+                roundedButtonEliminarReserva.Visible = !esSeleccionarUsuario;
+
+                if (esSeleccionarUsuario)
                 {
                     crear = true;
                     LimpiarCampos();
@@ -386,15 +393,54 @@ namespace GestioCercleCultural
                     crear = false;
                     textBoxNom.Text = row["nom"].ToString();
                     textBoxCorreu.Text = row["email"].ToString();
-
-                    // Seleccionar valor EXACTO en ComboBoxes
                     comboBoxRol.SelectedItem = row["tipusUsuari"].ToString();
                     comboBoxConSombraIdioma.SelectedItem = row["idioma"].ToString();
-
-                    // Limpiar contraseñas
                     textBoxContrasenya.Text = "";
                     textBoxConfirmarContrasenya.Text = "";
+
+                    // Cargar reservas del usuario
+                    CargarReservasUsuario((int)row["id"]);
                 }
+            }
+        }
+
+        private void CargarReservasUsuario(int userId)
+        {
+            try
+            {
+                DataTable reservas = ReservaOrm.SelectByUser(userId);
+
+                // Crear nuevo DataTable para el combo
+                DataTable dtCombo = new DataTable();
+                dtCombo.Columns.Add("Display", typeof(string));
+                dtCombo.Columns.Add("id", typeof(int));
+
+                if (reservas.Rows.Count == 0)
+                {
+                    // Caso sin reservas
+                    dtCombo.Rows.Add("No hay reservas", -1);
+                }
+                else
+                {
+                    // Añadir opción de selección
+                    dtCombo.Rows.Add("Seleccionar reserva", -1);
+
+                    // Añadir reservas reales
+                    foreach (DataRow row in reservas.Rows)
+                    {
+                        string displayText = $"Reserva {row["id"]} - {row["tipus"]}";
+                        dtCombo.Rows.Add(displayText, row["id"]);
+                    }
+                }
+
+                comboBoxConSombraReserves.DataSource = dtCombo;
+                comboBoxConSombraReserves.DisplayMember = "Display";
+                comboBoxConSombraReserves.ValueMember = "id";
+                comboBoxConSombraReserves.SelectedIndex = 0; // Seleccionar primer item
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar reservas: " + ex.Message);
             }
         }
 
@@ -464,6 +510,10 @@ namespace GestioCercleCultural
             {
                 MessageBox.Show($"Error: {ex.Message}");
             }
+
+            comboBoxConSombraReserves.Visible = false;
+            labelReserves.Visible = false;
+            roundedButtonEliminarReserva.Visible = false;
         }
 
         private void roundedButtonCrearUsuari_Click_1(object sender, EventArgs e)
@@ -471,6 +521,19 @@ namespace GestioCercleCultural
             crear = true;
             LimpiarCampos();
             CargarUsuaris();
+
+            // Ocultar y resetear reservas
+            comboBoxConSombraReserves.Visible = false;
+            labelReserves.Visible = false;
+            roundedButtonEliminarReserva.Visible = false;
+
+            // Crear DataTable vacío para el combo
+            DataTable dtVacio = new DataTable();
+            dtVacio.Columns.Add("Display", typeof(string));
+            dtVacio.Columns.Add("id", typeof(int));
+            dtVacio.Rows.Add("No hay reservas", -1);
+
+            comboBoxConSombraReserves.DataSource = dtVacio;
         }
 
         private void LimpiarCampos()
@@ -560,12 +623,37 @@ namespace GestioCercleCultural
             UsuariOrm.DeleteAll(id);
             CargarUsuaris();
             LimpiarCampos();
-            
+
+            comboBoxConSombraReserves.Visible = false;
+            labelReserves.Visible = false;
+            roundedButtonEliminarReserva.Visible = false;
+
         }
 
         private void roundedButtonEliminarReserva_Click(object sender, EventArgs e)
         {
+            if (comboBoxConSombraReserves.SelectedItem == null ||
+               (int)((DataRowView)comboBoxConSombraReserves.SelectedItem)["id"] == -1)
+            {
+                MessageBox.Show("Selecciona una reserva válida para eliminar");
+                return;
+            }
 
+            int reservaId = (int)((DataRowView)comboBoxConSombraReserves.SelectedItem)["id"];
+
+            try
+            {
+                ReservaOrm.DeleteReservaCompleto(reservaId);
+                MessageBox.Show("Reserva eliminada correctamente");
+
+                // Recargar reservas
+                DataRowView usuario = (DataRowView)comboBoxSeleccionarUsuari.SelectedItem;
+                CargarReservasUsuario((int)usuario["id"]);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al eliminar reserva: " + ex.Message);
+            }
         }
     }
 }

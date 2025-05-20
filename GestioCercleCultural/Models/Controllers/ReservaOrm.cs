@@ -66,6 +66,34 @@ namespace GestioCercleCultural.Models.Controllers
             }
         }
 
+        public static DataTable SelectByUser(int userId)
+        {
+            DataTable dt = new DataTable();
+
+            dt.Columns.Add("id", typeof(int));
+            dt.Columns.Add("tipus", typeof(string));
+            dt.Columns.Add("dataReserva", typeof(DateTime));
+            dt.Columns.Add("estat", typeof(string));
+
+            using (var context = new CercleCulturalEntities1())
+            {
+                var reservas = context.Reserva
+                    .Where(r => r.usuari_id == userId)
+                    .Select(r => new {
+                        r.id,
+                        r.tipus,
+                        r.dataReserva,
+                        r.estat
+                    }).ToList();
+
+                foreach (var r in reservas)
+                {
+                    dt.Rows.Add(r.id, r.tipus, r.dataReserva, r.estat);
+                }
+            }
+            return dt;
+        }
+
         public static DataTable SelectAll()
         {
             DataTable dt = new DataTable();
