@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{946E55D2-BD90-486C-82D5-142FB257B275}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>GestioCercleCultural</RootNamespace>
+    <AssemblyName>GestioCercleCultural</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.Desktop.v24.2, Version=24.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Data.v24.2, Version=24.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Drawing.v24.2, Version=24.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v24.2.Core, Version=24.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v24.2, Version=24.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=9.0.0.5, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.9.0.5\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="RestSharp, Version=112.1.0.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.112.1.0\lib\net471\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.ConfigurationManager, Version=9.0.0.5, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Configuration.ConfigurationManager.9.0.5\lib\net462\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.IO.Pipelines, Version=9.0.0.5, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Pipelines.9.0.5\lib\net462\System.IO.Pipelines.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Text.Encodings.Web, Version=9.0.0.5, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.9.0.5\lib\net462\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=9.0.0.5, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.9.0.5\lib\net462\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CustomControls\ComboBoxSombra.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\DateTimePickerConSombra.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\DateTimePickerConSombra.Designer.cs">
+      <DependentUpon>DateTimePickerConSombra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\RoundedButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomControls\TextBoxConSombra.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FormGestioEsdeveniments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGestioEsdeveniments.Designer.cs">
+      <DependentUpon>FormGestioEsdeveniments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormGestioEspais.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGestioEspais.Designer.cs">
+      <DependentUpon>FormGestioEspais.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormGestioUsuaris.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGestioUsuaris.Designer.cs">
+      <DependentUpon>FormGestioUsuaris.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormIniciarSessio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormIniciarSessio.Designer.cs">
+      <DependentUpon>FormIniciarSessio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormReservaUsuari.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReservaUsuari.Designer.cs">
+      <DependentUpon>FormReservaUsuari.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormReservesSuport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReservesSuport.Designer.cs">
+      <DependentUpon>FormReservesSuport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu.Designer.cs">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CercleCulturalOrm.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CercleCulturalOrm.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CercleCulturalOrm.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CercleCulturalOrm.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CercleCulturalOrm.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CercleCulturalOrm.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Controllers\EsdevenimentOrm.cs" />
+    <Compile Include="Models\Controllers\EspaiOrm.cs" />
+    <Compile Include="Models\Controllers\ReservaOrm.cs" />
+    <Compile Include="Models\Controllers\SeientsOrm.cs" />
+    <Compile Include="Models\Controllers\UsuariOrm.cs" />
+    <Compile Include="Models\Esdeveniment.cs">
+      <DependentUpon>CercleCulturalOrm.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Espai.cs">
+      <DependentUpon>CercleCulturalOrm.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Mensajes.cs">
+      <DependentUpon>CercleCulturalOrm.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Reserva.cs">
+      <DependentUpon>CercleCulturalOrm.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Seients.cs">
+      <DependentUpon>CercleCulturalOrm.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Usuari.cs">
+      <DependentUpon>CercleCulturalOrm.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UsuarioLogueado.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CustomControls\ComboBoxSombra.resx">
+      <DependentUpon>ComboBoxSombra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\TextBoxConSombra.resx">
+      <DependentUpon>TextBoxConSombra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGestioEsdeveniments.resx">
+      <DependentUpon>FormGestioEsdeveniments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGestioEspais.resx">
+      <DependentUpon>FormGestioEspais.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGestioUsuaris.resx">
+      <DependentUpon>FormGestioUsuaris.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormIniciarSessio.resx">
+      <DependentUpon>FormIniciarSessio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReservaUsuari.resx">
+      <DependentUpon>FormReservaUsuari.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReservesSuport.resx">
+      <DependentUpon>FormReservesSuport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu.resx">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="data\agents\01dcc3e5-0af7-49e6-ad7a-a760bd12dc4b\agent.json" />
+    <None Include="data\agents\01dcc3e5-0af7-49e6-ad7a-a760bd12dc4b\functions\human_intervention_needed.json" />
+    <None Include="data\agents\01dcc3e5-0af7-49e6-ad7a-a760bd12dc4b\instructions\instruction.liquid" />
+    <None Include="data\agents\01e2fc5c-2c89-4ec7-8470-7688608b496c\agent.json" />
+    <None Include="data\agents\01e2fc5c-2c89-4ec7-8470-7688608b496c\instructions\instruction.liquid" />
+    <None Include="data\agents\01fcc3e5-0af7-49e6-ad7a-a760bd12dc4d\agent.json" />
+    <None Include="data\agents\01fcc3e5-0af7-49e6-ad7a-a760bd12dc4d\instructions\instruction.liquid" />
+    <None Include="data\agents\01fcc3e5-9af7-49e6-ad7a-a760bd12dc4a\agent.json" />
+    <None Include="data\agents\01fcc3e5-9af7-49e6-ad7a-a760bd12dc4a\functions\route_to_agent.json" />
+    <None Include="data\agents\01fcc3e5-9af7-49e6-ad7a-a760bd12dc4a\instructions\instruction.liquid" />
+    <None Include="data\agents\01fcc3e5-9af7-49e6-ad7a-a760bd12dc4a\templates\.welcome.liquid" />
+    <None Include="data\agents\01fcc3e5-9af7-49e6-ad7a-a760bd12dc4a\templates\conversation.summary.liquid" />
+    <None Include="data\agents\01fcc3e5-9af7-49e6-ad7a-a760bd12dc4a\templates\database_knowledge.liquid" />
+    <None Include="data\agents\01fcc3e5-9af7-49e6-ad7a-a760bd12dc4a\templates\reasoner.hf.liquid" />
+    <None Include="data\agents\01fcc3e5-9af7-49e6-ad7a-a760bd12dc4a\templates\reasoner.naive.liquid" />
+    <None Include="data\agents\01fcc3e5-9af7-49e6-ad7a-a760bd12dc4a\templates\reasoner.one-step-forward.liquid" />
+    <None Include="data\agents\01fcc3e5-9af7-49e6-ad7a-a760bd12dc4a\templates\reasoner.sequential.get_remaining_task.liquid" />
+    <None Include="data\agents\01fcc3e5-9af7-49e6-ad7a-a760bd12dc4a\templates\reasoner.sequential.liquid" />
+    <None Include="data\agents\01fcc3e5-9af7-49e6-ad7a-a760bd12dc4a\templates\response_with_function.liquid" />
+    <None Include="data\agents\01fcc3e5-9af7-49e6-ad7a-a760bd12dc4a\templates\translation_prompt.liquid" />
+    <None Include="data\agents\6745151e-6d46-4a02-8de4-1c4f21c7da95\agent.json" />
+    <None Include="data\agents\6745151e-6d46-4a02-8de4-1c4f21c7da95\functions\util-instruct-execute_template.json" />
+    <None Include="data\agents\6745151e-6d46-4a02-8de4-1c4f21c7da95\functions\util-routing-fallback_to_router.json" />
+    <None Include="data\agents\6745151e-6d46-4a02-8de4-1c4f21c7da95\instructions\instruction.liquid" />
+    <None Include="data\agents\6745151e-6d46-4a02-8de4-1c4f21c7da95\templates\select_file_prompt.liquid" />
+    <None Include="data\agents\6745151e-6d46-4a02-8de4-1c4f21c7da95\templates\util-instruct-execute_template.fn.liquid" />
+    <None Include="data\agents\6745151e-6d46-4a02-8de4-1c4f21c7da95\templates\util-routing-fallback_to_router.fn.liquid" />
+    <None Include="data\agents\dfd9b46d-d00c-40af-8a75-3fbdc2b89869\agent.json" />
+    <None Include="data\agents\dfd9b46d-d00c-40af-8a75-3fbdc2b89869\instructions\instruction.liquid" />
+    <None Include="data\agents\dfd9b46d-d00c-40af-8a75-3fbdc2b89869\templates\instruction.executor.liquid" />
+    <None Include="data\agents\dfd9b46d-d00c-40af-8a75-3fbdc2b89869\templates\instruction.metrics.liquid" />
+    <None Include="data\agents\dfd9b46d-d00c-40af-8a75-3fbdc2b89869\templates\instruction.reviewer.liquid" />
+    <None Include="data\agents\dfd9b46d-d00c-40af-8a75-3fbdc2b89869\templates\instruction.simulator.liquid" />
+    <None Include="data\plugins\config.json" />
+    <EntityDeploy Include="Models\CercleCulturalOrm.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CercleCulturalOrm.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Models\CercleCulturalOrm.edmx.diagram">
+      <DependentUpon>CercleCulturalOrm.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgFonsInici.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgAvatarDeUsuario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgEspais.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgEvents.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgReserves.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgFlechaIzquierda.png" />
+    <None Include="Resources\imgFlechaDerecha.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Models\CercleCulturalOrm.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CercleCulturalOrm.edmx</DependentUpon>
+      <LastGenOutput>CercleCulturalOrm.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\CercleCulturalOrm.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CercleCulturalOrm.edmx</DependentUpon>
+      <LastGenOutput>CercleCulturalOrm.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\BotSharp.Core.5.0.0\build\BotSharp.Core.targets" Condition="Exists('..\packages\BotSharp.Core.5.0.0\build\BotSharp.Core.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\BotSharp.Core.5.0.0\build\BotSharp.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\BotSharp.Core.5.0.0\build\BotSharp.Core.targets'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+</Project>
