@@ -168,43 +168,67 @@ namespace GestioCercleCultural.Models.Controllers
             {
                 try
                 {
-                    // 1. Obtener todas las reservas del usuario
-                    var reservas = context.Reserva
+                    // 1. Eliminar mensajes del usuario
+                    var mensajes = context.Mensajes
+                        .Where(m => m.usuari_id == usuariId)
+                        .ToList();
+                    context.Mensajes.RemoveRange(mensajes);
+
+                    // 2. Obtener eventos creados por el usuario
+                    var eventos = context.Esdeveniment
+                        .Where(e => e.usuari_id == usuariId)
+                        .ToList();
+
+                    // 3. Eliminar reservas de esos eventos
+                    var reservasEventos = context.Reserva
+                        .Where(r => eventos.Select(e => e.id).Contains(r.esdeveniment_id.Value))
+                        .Include(r => r.Seients)
+                        .ToList();
+
+                    foreach (var reserva in reservasEventos)
+                    {
+                        foreach (var seient in reserva.Seients.ToList())
+                        {
+                            seient.estat = "DISPONIBLE";
+                            reserva.Seients.Remove(seient);
+                        }
+                        context.Reserva.Remove(reserva);
+                    }
+
+                    // 4. Eliminar los eventos del usuario
+                    context.Esdeveniment.RemoveRange(eventos);
+
+                    // 5. Eliminar reservas directas del usuario
+                    var reservasUsuario = context.Reserva
                         .Where(r => r.usuari_id == usuariId)
                         .Include(r => r.Seients)
                         .ToList();
 
-                    // 2. Eliminar relaciones con asientos y actualizar su estado
-                    foreach (var reserva in reservas)
+                    foreach (var reserva in reservasUsuario)
                     {
-                        // Liberar los asientos (actualizar estado si es necesario)
                         foreach (var seient in reserva.Seients.ToList())
                         {
-                            // Opcional: Marcar asiento como disponible
                             seient.estat = "DISPONIBLE";
                             reserva.Seients.Remove(seient);
                         }
+                        context.Reserva.Remove(reserva);
                     }
 
-                    // 3. Eliminar las reservas
-                    context.Reserva.RemoveRange(reservas);
-
-                    // 4. Eliminar el usuario
-                    var usuari = context.Usuari.Find(usuariId);
-                    if (usuari != null)
+                    // 6. Finalmente eliminar el usuario
+                    var usuario = context.Usuari.Find(usuariId);
+                    if (usuario != null)
                     {
-                        context.Usuari.Remove(usuari);
+                        context.Usuari.Remove(usuario);
                     }
 
                     context.SaveChanges();
                     transaction.Commit();
-
-                    MessageBox.Show("Usuari i reserves eliminades correctament");
                 }
                 catch (Exception ex)
                 {
                     transaction.Rollback();
-                    MessageBox.Show($"Error eliminant usuari: {ex.Message}");
+                    // Mostrar el error completo incluyendo inner exception
+                    throw new Exception($"Error completo: {ex.Message}\nInner exception: {ex.InnerException?.Message}");
                 }
             }
         }
