@@ -54,7 +54,9 @@
             this.textBoxNomEsdeveniment = new TextBoxConSombra();
             this.roundedButtonConfirmarUsuari = new RoundedButton();
             this.checkBoxPerInfants = new System.Windows.Forms.CheckBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -341,7 +343,7 @@
             this.roundedButtonConfirmarUsuari.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.roundedButtonConfirmarUsuari.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
             this.roundedButtonConfirmarUsuari.ForeColor = System.Drawing.Color.Black;
-            this.roundedButtonConfirmarUsuari.Location = new System.Drawing.Point(645, 456);
+            this.roundedButtonConfirmarUsuari.Location = new System.Drawing.Point(492, 456);
             this.roundedButtonConfirmarUsuari.Name = "roundedButtonConfirmarUsuari";
             this.roundedButtonConfirmarUsuari.Size = new System.Drawing.Size(120, 50);
             this.roundedButtonConfirmarUsuari.TabIndex = 29;
@@ -359,6 +361,16 @@
             this.checkBoxPerInfants.TabIndex = 73;
             this.checkBoxPerInfants.Text = "Per Infants";
             this.checkBoxPerInfants.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::GestioCercleCultural.Properties.Resources.imgCCLogoBlancoyNegro;
+            this.pictureBox1.Location = new System.Drawing.Point(693, 449);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(142, 135);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 74;
+            this.pictureBox1.TabStop = false;
             // 
             // FormGestioEsdeveniments
             // 
@@ -389,10 +401,12 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBoxNomEsdeveniment);
             this.Controls.Add(this.roundedButtonConfirmarUsuari);
+            this.Controls.Add(this.pictureBox1);
             this.Name = "FormGestioEsdeveniments";
             this.Text = "FormGestioEsdeveniments";
             this.Load += new System.EventHandler(this.FormGestioEsdeveniments_Load);
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -426,5 +440,6 @@
         private CustomControls.DateTimePickerConSombra dateTimePickerConSombraDiaEsdeveniment;
         private RoundedButton roundedButtonEliminarEvent;
         private System.Windows.Forms.CheckBox checkBoxPerInfants;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

@@ -63,6 +63,7 @@ namespace GestioCercleCultural
 
         private void FormGestioEsdeveniments_Load(object sender, EventArgs e)
         {
+            this.AutoScroll = false;
             textBoxConSombraUbicacioEsdeveniment.ReadOnly = true;
             CargarDatosIniciales();
             ConfigurarEventos();

@@ -33,6 +33,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.labelEntrades = new System.Windows.Forms.Label();
             this.comboBoxConSombraEtrades = new ComboBoxConSombra();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // roundedButtonReservar
@@ -103,12 +105,23 @@
             this.comboBoxConSombraEtrades.TabIndex = 6;
             this.comboBoxConSombraEtrades.ValueMember = "";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::GestioCercleCultural.Properties.Resources.imgCCLogoBlancoyNegro;
+            this.pictureBox1.Location = new System.Drawing.Point(693, 450);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(142, 135);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
+            // 
             // FormReservaUsuari
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(241)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(799, 530);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.comboBoxConSombraEtrades);
             this.Controls.Add(this.labelEntrades);
             this.Controls.Add(this.label1);
@@ -116,6 +129,8 @@
             this.Controls.Add(this.roundedButtonReservar);
             this.Name = "FormReservaUsuari";
             this.Text = "FormReservaUsuari";
+            this.Load += new System.EventHandler(this.FormReservaUsuari_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -128,5 +143,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label labelEntrades;
         private ComboBoxConSombra comboBoxConSombraEtrades;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

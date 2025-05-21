@@ -37,21 +37,23 @@ namespace GestioCercleCultural
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.labelReserves = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.roundedButtonEliminarReserva = new RoundedButton();
+            this.comboBoxConSombraReserves = new ComboBoxConSombra();
+            this.comboBoxConSombraIdioma = new ComboBoxConSombra();
             this.roundedButtonEliminarUsuari = new RoundedButton();
             this.comboBoxSeleccionarUsuari = new ComboBoxConSombra();
             this.roundedButtonCrearUsuari = new RoundedButton();
-            this.label2 = new System.Windows.Forms.Label();
-            this.comboBoxConSombraIdioma = new ComboBoxConSombra();
             this.comboBoxRol = new ComboBoxConSombra();
             this.textBoxConfirmarContrasenya = new TextBoxConSombra();
             this.textBoxContrasenya = new TextBoxConSombra();
             this.textBoxCorreu = new TextBoxConSombra();
             this.textBoxNom = new TextBoxConSombra();
             this.roundedButtonConfirmarUsuari = new RoundedButton();
-            this.comboBoxConSombraReserves = new ComboBoxConSombra();
-            this.labelReserves = new System.Windows.Forms.Label();
-            this.roundedButtonEliminarReserva = new RoundedButton();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label8
@@ -115,6 +117,81 @@ namespace GestioCercleCultural
             this.panel1.Size = new System.Drawing.Size(730, 65);
             this.panel1.TabIndex = 28;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(34, 345);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(57, 20);
+            this.label2.TabIndex = 30;
+            this.label2.Text = "Idioma";
+            // 
+            // labelReserves
+            // 
+            this.labelReserves.AutoSize = true;
+            this.labelReserves.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelReserves.Location = new System.Drawing.Point(316, 139);
+            this.labelReserves.Name = "labelReserves";
+            this.labelReserves.Size = new System.Drawing.Size(76, 20);
+            this.labelReserves.TabIndex = 32;
+            this.labelReserves.Text = "Reserves";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::GestioCercleCultural.Properties.Resources.imgCCLogoBlancoyNegro;
+            this.pictureBox1.Location = new System.Drawing.Point(693, 449);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(142, 135);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 33;
+            this.pictureBox1.TabStop = false;
+            // 
+            // roundedButtonEliminarReserva
+            // 
+            this.roundedButtonEliminarReserva.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.roundedButtonEliminarReserva.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.roundedButtonEliminarReserva.FlatAppearance.BorderSize = 0;
+            this.roundedButtonEliminarReserva.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.roundedButtonEliminarReserva.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
+            this.roundedButtonEliminarReserva.ForeColor = System.Drawing.Color.Black;
+            this.roundedButtonEliminarReserva.Location = new System.Drawing.Point(643, 162);
+            this.roundedButtonEliminarReserva.Name = "roundedButtonEliminarReserva";
+            this.roundedButtonEliminarReserva.Size = new System.Drawing.Size(122, 45);
+            this.roundedButtonEliminarReserva.TabIndex = 3;
+            this.roundedButtonEliminarReserva.Text = "Eliminar Reserva";
+            this.roundedButtonEliminarReserva.UseVisualStyleBackColor = false;
+            this.roundedButtonEliminarReserva.Click += new System.EventHandler(this.roundedButtonEliminarReserva_Click);
+            // 
+            // comboBoxConSombraReserves
+            // 
+            this.comboBoxConSombraReserves.DataSource = null;
+            this.comboBoxConSombraReserves.DisplayMember = "";
+            this.comboBoxConSombraReserves.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            this.comboBoxConSombraReserves.Location = new System.Drawing.Point(320, 162);
+            this.comboBoxConSombraReserves.Name = "comboBoxConSombraReserves";
+            this.comboBoxConSombraReserves.SelectedIndex = -1;
+            this.comboBoxConSombraReserves.SelectedItem = null;
+            this.comboBoxConSombraReserves.SelectedValue = null;
+            this.comboBoxConSombraReserves.Size = new System.Drawing.Size(276, 45);
+            this.comboBoxConSombraReserves.TabIndex = 31;
+            this.comboBoxConSombraReserves.ValueMember = "";
+            // 
+            // comboBoxConSombraIdioma
+            // 
+            this.comboBoxConSombraIdioma.DataSource = null;
+            this.comboBoxConSombraIdioma.DisplayMember = "";
+            this.comboBoxConSombraIdioma.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            this.comboBoxConSombraIdioma.Location = new System.Drawing.Point(38, 368);
+            this.comboBoxConSombraIdioma.Name = "comboBoxConSombraIdioma";
+            this.comboBoxConSombraIdioma.SelectedIndex = -1;
+            this.comboBoxConSombraIdioma.SelectedItem = null;
+            this.comboBoxConSombraIdioma.SelectedValue = null;
+            this.comboBoxConSombraIdioma.Size = new System.Drawing.Size(160, 45);
+            this.comboBoxConSombraIdioma.TabIndex = 29;
+            this.comboBoxConSombraIdioma.ValueMember = "";
+            this.comboBoxConSombraIdioma.SelectedIndexChanged += new System.EventHandler(this.comboBoxConSombraIdioma_SelectedIndexChanged);
+            // 
             // roundedButtonEliminarUsuari
             // 
             this.roundedButtonEliminarUsuari.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
@@ -162,31 +239,6 @@ namespace GestioCercleCultural
             this.roundedButtonCrearUsuari.Text = "Crear Usuari";
             this.roundedButtonCrearUsuari.UseVisualStyleBackColor = false;
             this.roundedButtonCrearUsuari.Click += new System.EventHandler(this.roundedButtonCrearUsuari_Click_1);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(34, 345);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 20);
-            this.label2.TabIndex = 30;
-            this.label2.Text = "Idioma";
-            // 
-            // comboBoxConSombraIdioma
-            // 
-            this.comboBoxConSombraIdioma.DataSource = null;
-            this.comboBoxConSombraIdioma.DisplayMember = "";
-            this.comboBoxConSombraIdioma.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
-            this.comboBoxConSombraIdioma.Location = new System.Drawing.Point(38, 368);
-            this.comboBoxConSombraIdioma.Name = "comboBoxConSombraIdioma";
-            this.comboBoxConSombraIdioma.SelectedIndex = -1;
-            this.comboBoxConSombraIdioma.SelectedItem = null;
-            this.comboBoxConSombraIdioma.SelectedValue = null;
-            this.comboBoxConSombraIdioma.Size = new System.Drawing.Size(160, 45);
-            this.comboBoxConSombraIdioma.TabIndex = 29;
-            this.comboBoxConSombraIdioma.ValueMember = "";
-            this.comboBoxConSombraIdioma.SelectedIndexChanged += new System.EventHandler(this.comboBoxConSombraIdioma_SelectedIndexChanged);
             // 
             // comboBoxRol
             // 
@@ -255,50 +307,11 @@ namespace GestioCercleCultural
             this.roundedButtonConfirmarUsuari.UseVisualStyleBackColor = false;
             this.roundedButtonConfirmarUsuari.Click += new System.EventHandler(this.roundedButtonConfirmarUsuari_Click);
             // 
-            // comboBoxConSombraReserves
-            // 
-            this.comboBoxConSombraReserves.DataSource = null;
-            this.comboBoxConSombraReserves.DisplayMember = "";
-            this.comboBoxConSombraReserves.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
-            this.comboBoxConSombraReserves.Location = new System.Drawing.Point(320, 162);
-            this.comboBoxConSombraReserves.Name = "comboBoxConSombraReserves";
-            this.comboBoxConSombraReserves.SelectedIndex = -1;
-            this.comboBoxConSombraReserves.SelectedItem = null;
-            this.comboBoxConSombraReserves.SelectedValue = null;
-            this.comboBoxConSombraReserves.Size = new System.Drawing.Size(276, 45);
-            this.comboBoxConSombraReserves.TabIndex = 31;
-            this.comboBoxConSombraReserves.ValueMember = "";
-            // 
-            // labelReserves
-            // 
-            this.labelReserves.AutoSize = true;
-            this.labelReserves.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelReserves.Location = new System.Drawing.Point(316, 139);
-            this.labelReserves.Name = "labelReserves";
-            this.labelReserves.Size = new System.Drawing.Size(76, 20);
-            this.labelReserves.TabIndex = 32;
-            this.labelReserves.Text = "Reserves";
-            // 
-            // roundedButtonEliminarReserva
-            // 
-            this.roundedButtonEliminarReserva.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.roundedButtonEliminarReserva.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.roundedButtonEliminarReserva.FlatAppearance.BorderSize = 0;
-            this.roundedButtonEliminarReserva.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.roundedButtonEliminarReserva.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
-            this.roundedButtonEliminarReserva.ForeColor = System.Drawing.Color.Black;
-            this.roundedButtonEliminarReserva.Location = new System.Drawing.Point(643, 162);
-            this.roundedButtonEliminarReserva.Name = "roundedButtonEliminarReserva";
-            this.roundedButtonEliminarReserva.Size = new System.Drawing.Size(122, 45);
-            this.roundedButtonEliminarReserva.TabIndex = 3;
-            this.roundedButtonEliminarReserva.Text = "Eliminar Reserva";
-            this.roundedButtonEliminarReserva.UseVisualStyleBackColor = false;
-            this.roundedButtonEliminarReserva.Click += new System.EventHandler(this.roundedButtonEliminarReserva_Click);
-            // 
             // FormGestioUsuaris
             // 
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(241)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(799, 530);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.roundedButtonEliminarReserva);
             this.Controls.Add(this.labelReserves);
             this.Controls.Add(this.comboBoxConSombraReserves);
@@ -319,6 +332,7 @@ namespace GestioCercleCultural
             this.Name = "FormGestioUsuaris";
             this.Load += new System.EventHandler(this.FormGestioUsuaris_Load);
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -326,8 +340,8 @@ namespace GestioCercleCultural
 
         private void FormGestioUsuaris_Load(object sender, EventArgs e)
         {
+            this.AutoScroll = false;
             CargarUsuaris();
-
             CargarValoresComboBox();
         }
 

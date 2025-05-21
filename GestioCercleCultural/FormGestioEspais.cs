@@ -302,5 +302,10 @@ namespace GestioCercleCultural
                 MessageBox.Show($"Error eliminando: {ex.Message}");
             }
         }
+
+        private void FormGestioEspais_Load_1(object sender, EventArgs e)
+        {
+            this.AutoScroll = false;
+        }
     }
 }

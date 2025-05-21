@@ -8,6 +8,15 @@ namespace GestioCercleCultural.Models.Controllers
 {
     internal class ReservaOrm
     {
+        /// <summary>
+        /// Crea una nova reserva d'espai o esdeveniment.
+        /// </summary>
+        /// <param name="usuariId"> ID de l'usuari que fa la reserva</param>
+        /// <param name="tipus"> Tipus de reserva (ESPAI o ESDEVENIMENT)</param>
+        /// <param name="espaiId"> ID de l'espai reservat</param>
+        /// <param name="esdevenimentId"> ID de l'esdeveniment reservat</param>
+        /// <param name="dataInici"> Data d'inici de la reserva</param>
+        /// <param name="dataFi"> Data de fi de la reserva</param>
         public static void InsertEspai(int usuariId, string tipus, int? espaiId, int? esdevenimentId,
                                 DateTime? dataInici, DateTime? dataFi)
         {
@@ -37,6 +46,17 @@ namespace GestioCercleCultural.Models.Controllers
             }
         }
 
+        /// <summary>
+        /// Crea una nova reserva d'esdeveniment.
+        /// </summary>
+        /// <param name="usuariId"> ID de l'usuari que fa la reserva</param>
+        /// <param name="tipus"> Tipus de reserva (ESPAI o ESDEVENIMENT)</param>
+        /// <param name="espaiId"> ID de l'espai reservat</param>
+        /// <param name="esdevenimentId"> ID de l'esdeveniment reservat</param>
+        /// <param name="dataInici"> Data d'inici de la reserva</param>
+        /// <param name="dataFi"> Data de fi de la reserva</param>
+        /// <param name="numPlaces"> Número de places reservades</param>
+        /// <param name="estat"> Estat de la reserva (per defecte "PENDENT")</param>
         public static void InsertEvent(int usuariId, string tipus, int? espaiId, int? esdevenimentId,
                                 DateTime? dataInici, DateTime? dataFi, int? numPlaces, string estat = "PENDENT")
         {
@@ -66,6 +86,11 @@ namespace GestioCercleCultural.Models.Controllers
             }
         }
 
+        /// <summary>
+        /// Retorna totes les reserves d'un usuari.
+        /// </summary>
+        /// <param name="userId"> ID de l'usuari</param>
+        /// <returns></returns>
         public static DataTable SelectByUser(int userId)
         {
             DataTable dt = new DataTable();
@@ -94,6 +119,10 @@ namespace GestioCercleCultural.Models.Controllers
             return dt;
         }
 
+        /// <summary>
+        /// Retorna totes les reserves.
+        /// </summary>
+        /// <returns></returns>
         public static DataTable SelectAll()
         {
             DataTable dt = new DataTable();
@@ -131,6 +160,18 @@ namespace GestioCercleCultural.Models.Controllers
             return dt;
         }
 
+        /// <summary>
+        /// Actualitza una reserva existent.
+        /// </summary>
+        /// <param name="id"> ID de la reserva a actualitzar</param>
+        /// <param name="usuariId"> ID de l'usuari que fa la reserva</param>
+        /// <param name="tipus"> Tipus de reserva (ESPAI o ESDEVENIMENT)</param>
+        /// <param name="espaiId"> ID de l'espai reservat</param>
+        /// <param name="esdevenimentId"> ID de l'esdeveniment reservat</param>
+        /// <param name="dataInici"> Data d'inici de la reserva</param>
+        /// <param name="dataFi"> Data de fi de la reserva</param>
+        /// <param name="numPlaces"> Número de places reservades</param>
+        /// <param name="estat"> Estat de la reserva (per defecte "PENDENT")</param>
         public static void Update(int id, int usuariId, string tipus, int? espaiId, int? esdevenimentId,
                                 DateTime? dataInici, DateTime? dataFi, int? numPlaces, string estat)
         {
@@ -160,6 +201,10 @@ namespace GestioCercleCultural.Models.Controllers
             }
         }
 
+        /// <summary>
+        /// Elimina una reserva existent.
+        /// </summary>
+        /// <param name="id"> ID de la reserva a eliminar</param>
         public static void Delete(int id)
         {
             try
@@ -181,7 +226,10 @@ namespace GestioCercleCultural.Models.Controllers
         }
 
 
-        // En ReservaOrm
+        /// <summary>
+        /// Elimina una reserva completa, incloent els seients associats.
+        /// </summary>
+        /// <param name="reservaId"> ID de la reserva a eliminar</param>
         public static void DeleteReservaCompleto(int reservaId)
         {
             using (var context = new CercleCulturalEntities1())

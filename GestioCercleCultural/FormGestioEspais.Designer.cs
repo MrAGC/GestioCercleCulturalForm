@@ -48,8 +48,10 @@
             this.comboBoxSeleccionarEspai = new ComboBoxConSombra();
             this.roundedButtonEliminarEspai = new RoundedButton();
             this.textBoxConSombraUbicacio = new TextBoxConSombra();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox2.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // roundedButtonCrearEspai
@@ -272,12 +274,23 @@
             this.textBoxConSombraUbicacio.SoloNumeros = false;
             this.textBoxConSombraUbicacio.TabIndex = 61;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::GestioCercleCultural.Properties.Resources.imgCCLogoBlancoyNegro;
+            this.pictureBox1.Location = new System.Drawing.Point(693, 449);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(142, 135);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 62;
+            this.pictureBox1.TabStop = false;
+            // 
             // FormGestioEspais
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(241)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(799, 530);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.textBoxConSombraUbicacio);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label6);
@@ -295,9 +308,11 @@
             this.Controls.Add(this.roundedButtonConfirmarEspai);
             this.Name = "FormGestioEspais";
             this.Text = "FormGestioEspais";
+            this.Load += new System.EventHandler(this.FormGestioEspais_Load_1);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -324,5 +339,6 @@
         private TextBoxConSombra textBoxConSombraUbicacio;
         private RoundedButton roundedButtonEliminarEspai;
         private ComboBoxConSombra comboBoxSeleccionarEspai;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

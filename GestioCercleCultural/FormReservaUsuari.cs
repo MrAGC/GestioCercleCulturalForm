@@ -223,5 +223,10 @@ namespace GestioCercleCultural
             if (comboBoxConSombraEtrades.Items.Count > 0)
                 comboBoxConSombraEtrades.SelectedIndex = 0;
         }
+
+        private void FormReservaUsuari_Load(object sender, EventArgs e)
+        {
+            this.AutoScroll = false;
+        }
     }
 }

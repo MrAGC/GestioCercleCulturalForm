@@ -114,5 +114,10 @@ namespace GestioCercleCultural
             }
             ActualizarEstadoFlechas();
         }
+
+        private void FormReservesSuport_Load(object sender, EventArgs e)
+        {
+            this.AutoScroll = false;
+        }
     }
 }

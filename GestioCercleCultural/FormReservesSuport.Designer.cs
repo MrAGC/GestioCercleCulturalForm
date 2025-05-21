@@ -36,9 +36,11 @@
             this.roundedButtonReservar = new RoundedButton();
             this.pictureBoxIzquierda = new System.Windows.Forms.PictureBox();
             this.pictureBoxFechaDerecha = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxIzquierda)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFechaDerecha)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -133,6 +135,16 @@
             this.pictureBoxFechaDerecha.TabStop = false;
             this.pictureBoxFechaDerecha.Click += new System.EventHandler(this.pictureBoxFechaDerecha_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::GestioCercleCultural.Properties.Resources.imgCCLogoBlancoyNegro;
+            this.pictureBox1.Location = new System.Drawing.Point(693, 449);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(142, 135);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 64;
+            this.pictureBox1.TabStop = false;
+            // 
             // FormReservesSuport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -142,12 +154,15 @@
             this.Controls.Add(this.pictureBoxIzquierda);
             this.Controls.Add(this.pictureBoxFechaDerecha);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pictureBox1);
             this.Name = "FormReservesSuport";
             this.Text = "FormReservesSuport";
+            this.Load += new System.EventHandler(this.FormReservesSuport_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxIzquierda)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFechaDerecha)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -162,5 +177,6 @@
         private System.Windows.Forms.Label labelDescripcion;
         private System.Windows.Forms.PictureBox pictureBoxFechaDerecha;
         private System.Windows.Forms.PictureBox pictureBoxIzquierda;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

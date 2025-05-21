@@ -40,5 +40,6 @@
         private ComboBoxConSombra comboBoxConSombraReserves;
         private System.Windows.Forms.Label labelReserves;
         private RoundedButton roundedButtonEliminarReserva;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

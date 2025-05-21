@@ -8,6 +8,10 @@ namespace GestioCercleCultural.Models.Controllers
 {
     internal class EspaiOrm
     {
+        /// <summary>
+        /// Selecciona todos los espacios y devuelve un DataTable con la información.
+        /// </summary>
+        /// <returns></returns>
         public static DataTable SelectAll()
         {
             DataTable dt = new DataTable();
@@ -58,6 +62,16 @@ catch (Exception ex)
             return dt;
         }
 
+        /// <summary>
+        /// Inserta un nuevo espacio en la base de datos.
+        /// </summary>
+        /// <param name="nom"> Nombre del espacio</param>
+        /// <param name="capacitat"> Capacidad del espacio</param>
+        /// <param name="ubicacio"> Ubicación del espacio</param>
+        /// <param name="metresQuadrats"> Metros cuadrados del espacio</param>
+        /// <param name="butaquesFixes"> ¿Tiene butacas fijas?</param>
+        /// <param name="numFiles"> Número de filas</param>
+        /// <param name="butaquesPerFila"> Número de butacas por fila</param>
         public static void Insert(string nom, int capacitat, string ubicacio, decimal metresQuadrats,
                         bool butaquesFixes, int? numFiles, int? butaquesPerFila)
         {
@@ -101,6 +115,17 @@ catch (Exception ex)
             }
         }
 
+        /// <summary>
+        /// Actualiza un espacio existente en la base de datos.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="nom"></param>
+        /// <param name="capacitat"></param>
+        /// <param name="ubicacio"></param>
+        /// <param name="metresQuadrats"></param>
+        /// <param name="butaquesFixes"></param>
+        /// <param name="numFiles"></param>
+        /// <param name="butaquesPerFila"></param>
         public static void Update(int id, string nom, int capacitat, string ubicacio, decimal metresQuadrats,
                                 bool butaquesFixes, int? numFiles, int? butaquesPerFila)
         {
@@ -121,7 +146,10 @@ catch (Exception ex)
             }
         }
 
-        // En EspaiOrm
+        /// <summary>
+        /// Elimina un espacio y todas sus relaciones.
+        /// </summary>
+        /// <param name="espaiId"> ID del espacio a eliminar</param>
         public static void DeleteEspaiCompleto(int espaiId)
         {
             using (var context = new CercleCulturalEntities1())
@@ -175,7 +203,11 @@ catch (Exception ex)
             }
         }
 
-
+        /// <summary>
+        /// Verifica si un espacio con el mismo nombre ya existe.
+        /// </summary>
+        /// <param name="nombre"> Nombre del espacio</param>
+        /// <returns></returns>
         public static bool ExisteNombre(string nombre)
         {
             using (var context = new CercleCulturalEntities1())
@@ -184,6 +216,11 @@ catch (Exception ex)
             }
         }
 
+        /// <summary>
+        /// Verifica si un espacio tiene eventos asociados.
+        /// </summary>
+        /// <param name="espaiId"> ID del espacio</param>
+        /// <returns></returns>
         public static bool TieneEventosAsociados(int espaiId)
         {
             using (var context = new CercleCulturalEntities1())

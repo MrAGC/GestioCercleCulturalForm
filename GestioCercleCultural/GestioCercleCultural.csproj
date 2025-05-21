@@ -331,6 +331,7 @@
       <DependentUpon>CercleCulturalOrm.edmx</DependentUpon>
       <LastGenOutput>CercleCulturalOrm.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\imgCCLogoBlancoyNegro.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\BotSharp.Core.5.0.0\build\BotSharp.Core.targets" Condition="Exists('..\packages\BotSharp.Core.5.0.0\build\BotSharp.Core.targets')" />

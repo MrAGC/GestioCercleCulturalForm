@@ -130,16 +130,22 @@
   <data name="imgReserves" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\imgReserves.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="imgCCLogoBlancoyNegro" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\imgCCLogoBlancoyNegro.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="imgAvatarDeUsuario" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\imgAvatarDeUsuario.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="imgEspais" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\imgEspais.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="imgFlechaIzquierda" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\imgFlechaIzquierda.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="imgLogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\imgLogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="imgFlechaIzquierda" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\imgFlechaIzquierda.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="imgCCLogoBlancoyNegro" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\imgCCLogoBlancoyNegro.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

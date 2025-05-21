@@ -7,6 +7,14 @@ namespace GestioCercleCultural.Models.Controllers
 {
     internal class SeientsOrm
     {
+        /// <summary>
+        /// Crea un nou seient a la base de dades.
+        /// </summary>
+        /// <param name="espaiId"> ID de l'espai on es troba el seient</param>
+        /// <param name="numerat"> Indica si el seient és numerat</param>
+        /// <param name="fila"> Fila del seient</param>
+        /// <param name="columna"> Columna del seient</param>
+        /// <param name="estat"> Estat del seient (per defecte "DISPONIBLE")</param>
         public static void Insert(int espaiId, bool numerat, string fila, string columna, string estat = "DISPONIBLE")
         {
             try
@@ -32,6 +40,10 @@ namespace GestioCercleCultural.Models.Controllers
             }
         }
 
+        /// <summary>
+        /// Retorna tots els seients de la base de dades.
+        /// </summary>
+        /// <returns></returns>
         public static DataTable SelectAll()
         {
             DataTable dt = new DataTable();
@@ -61,6 +73,15 @@ namespace GestioCercleCultural.Models.Controllers
             return dt;
         }
 
+        /// <summary>
+        /// Actualitza un seient existent a la base de dades.
+        /// </summary>
+        /// <param name="id"> ID del seient a actualitzar</param>
+        /// <param name="espaiId"> ID de l'espai on es troba el seient</param>
+        /// <param name="numerat"> Indica si el seient és numerat</param>
+        /// <param name="fila"> Fila del seient</param>
+        /// <param name="columna"> Columna del seient</param>
+        /// <param name="estat"> Estat del seient</param>
         public static void Update(int id, int espaiId, bool numerat, string fila, string columna, string estat)
         {
             try
@@ -86,6 +107,10 @@ namespace GestioCercleCultural.Models.Controllers
             }
         }
 
+        /// <summary>
+        /// Elimina un seient de la base de dades.
+        /// </summary>
+        /// <param name="id"> ID del seient a eliminar</param>
         public static void Delete(int id)
         {
             try

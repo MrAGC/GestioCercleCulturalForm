@@ -30,27 +30,30 @@
         {
             this.components = new System.ComponentModel.Container();
             this.sidebar = new System.Windows.Forms.Panel();
+            this.roundedButtonCerrarSession = new RoundedButton();
             this.panelSuport = new System.Windows.Forms.Panel();
-            this.buttonReservesSuport = new System.Windows.Forms.Button();
             this.panelEspais = new System.Windows.Forms.Panel();
-            this.buttonGestioEspais = new System.Windows.Forms.Button();
             this.panelEsdeveniments = new System.Windows.Forms.Panel();
-            this.buttonGestioEsdeveniments = new System.Windows.Forms.Button();
             this.panelUsuari = new System.Windows.Forms.Panel();
-            this.buttonGestioUsuaris = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBoxLogoMenu = new System.Windows.Forms.PictureBox();
             this.sidebarTimer = new System.Windows.Forms.Timer(this.components);
             this.panelCargarForms = new System.Windows.Forms.Panel();
-            this.roundedButtonCerrarSession = new RoundedButton();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.buttonReservesSuport = new System.Windows.Forms.Button();
+            this.buttonGestioEspais = new System.Windows.Forms.Button();
+            this.buttonGestioEsdeveniments = new System.Windows.Forms.Button();
+            this.buttonGestioUsuaris = new System.Windows.Forms.Button();
+            this.pictureBoxLogoMenu = new System.Windows.Forms.PictureBox();
             this.sidebar.SuspendLayout();
             this.panelSuport.SuspendLayout();
             this.panelEspais.SuspendLayout();
             this.panelEsdeveniments.SuspendLayout();
             this.panelUsuari.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panelCargarForms.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogoMenu)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,6 +74,22 @@
             this.sidebar.Size = new System.Drawing.Size(240, 569);
             this.sidebar.TabIndex = 0;
             // 
+            // roundedButtonCerrarSession
+            // 
+            this.roundedButtonCerrarSession.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(195)))), ((int)(((byte)(54)))));
+            this.roundedButtonCerrarSession.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.roundedButtonCerrarSession.FlatAppearance.BorderSize = 0;
+            this.roundedButtonCerrarSession.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.roundedButtonCerrarSession.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
+            this.roundedButtonCerrarSession.ForeColor = System.Drawing.Color.Black;
+            this.roundedButtonCerrarSession.Location = new System.Drawing.Point(56, 507);
+            this.roundedButtonCerrarSession.Name = "roundedButtonCerrarSession";
+            this.roundedButtonCerrarSession.Size = new System.Drawing.Size(120, 50);
+            this.roundedButtonCerrarSession.TabIndex = 6;
+            this.roundedButtonCerrarSession.Text = "Cerrar sessión";
+            this.roundedButtonCerrarSession.UseVisualStyleBackColor = false;
+            this.roundedButtonCerrarSession.Click += new System.EventHandler(this.roundedButtonCerrarSession_Click);
+            // 
             // panelSuport
             // 
             this.panelSuport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(241)))), ((int)(((byte)(255)))));
@@ -80,22 +99,6 @@
             this.panelSuport.Padding = new System.Windows.Forms.Padding(57, 0, 0, 0);
             this.panelSuport.Size = new System.Drawing.Size(234, 45);
             this.panelSuport.TabIndex = 5;
-            // 
-            // buttonReservesSuport
-            // 
-            this.buttonReservesSuport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonReservesSuport.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonReservesSuport.Image = global::GestioCercleCultural.Properties.Resources.imgReserves;
-            this.buttonReservesSuport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonReservesSuport.Location = new System.Drawing.Point(-43, -23);
-            this.buttonReservesSuport.Name = "buttonReservesSuport";
-            this.buttonReservesSuport.Padding = new System.Windows.Forms.Padding(57, 0, 0, 0);
-            this.buttonReservesSuport.Size = new System.Drawing.Size(283, 93);
-            this.buttonReservesSuport.TabIndex = 2;
-            this.buttonReservesSuport.Text = "                 Reserves i suport";
-            this.buttonReservesSuport.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonReservesSuport.UseVisualStyleBackColor = true;
-            this.buttonReservesSuport.Click += new System.EventHandler(this.buttonReservesSuport_Click);
             // 
             // panelEspais
             // 
@@ -107,22 +110,6 @@
             this.panelEspais.Size = new System.Drawing.Size(234, 45);
             this.panelEspais.TabIndex = 3;
             // 
-            // buttonGestioEspais
-            // 
-            this.buttonGestioEspais.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonGestioEspais.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonGestioEspais.Image = global::GestioCercleCultural.Properties.Resources.imgEspais;
-            this.buttonGestioEspais.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonGestioEspais.Location = new System.Drawing.Point(-43, -23);
-            this.buttonGestioEspais.Name = "buttonGestioEspais";
-            this.buttonGestioEspais.Padding = new System.Windows.Forms.Padding(55, 0, 0, 0);
-            this.buttonGestioEspais.Size = new System.Drawing.Size(283, 93);
-            this.buttonGestioEspais.TabIndex = 2;
-            this.buttonGestioEspais.Text = "                  Gestió d\'espais";
-            this.buttonGestioEspais.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonGestioEspais.UseVisualStyleBackColor = true;
-            this.buttonGestioEspais.Click += new System.EventHandler(this.buttonGestioEspais_Click);
-            // 
             // panelEsdeveniments
             // 
             this.panelEsdeveniments.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(241)))), ((int)(((byte)(255)))));
@@ -133,22 +120,6 @@
             this.panelEsdeveniments.Size = new System.Drawing.Size(234, 45);
             this.panelEsdeveniments.TabIndex = 4;
             // 
-            // buttonGestioEsdeveniments
-            // 
-            this.buttonGestioEsdeveniments.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonGestioEsdeveniments.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonGestioEsdeveniments.Image = global::GestioCercleCultural.Properties.Resources.imgEvents;
-            this.buttonGestioEsdeveniments.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonGestioEsdeveniments.Location = new System.Drawing.Point(-43, -22);
-            this.buttonGestioEsdeveniments.Name = "buttonGestioEsdeveniments";
-            this.buttonGestioEsdeveniments.Padding = new System.Windows.Forms.Padding(55, 0, 0, 0);
-            this.buttonGestioEsdeveniments.Size = new System.Drawing.Size(283, 93);
-            this.buttonGestioEsdeveniments.TabIndex = 2;
-            this.buttonGestioEsdeveniments.Text = "                 Gestió d\'esdeveniments";
-            this.buttonGestioEsdeveniments.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonGestioEsdeveniments.UseVisualStyleBackColor = true;
-            this.buttonGestioEsdeveniments.Click += new System.EventHandler(this.buttonGestioEsdeveniments_Click);
-            // 
             // panelUsuari
             // 
             this.panelUsuari.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(241)))), ((int)(((byte)(255)))));
@@ -158,22 +129,6 @@
             this.panelUsuari.Padding = new System.Windows.Forms.Padding(57, 0, 0, 0);
             this.panelUsuari.Size = new System.Drawing.Size(234, 45);
             this.panelUsuari.TabIndex = 1;
-            // 
-            // buttonGestioUsuaris
-            // 
-            this.buttonGestioUsuaris.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonGestioUsuaris.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonGestioUsuaris.Image = global::GestioCercleCultural.Properties.Resources.imgAvatarDeUsuario;
-            this.buttonGestioUsuaris.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonGestioUsuaris.Location = new System.Drawing.Point(-43, -22);
-            this.buttonGestioUsuaris.Name = "buttonGestioUsuaris";
-            this.buttonGestioUsuaris.Padding = new System.Windows.Forms.Padding(57, 0, 0, 0);
-            this.buttonGestioUsuaris.Size = new System.Drawing.Size(283, 93);
-            this.buttonGestioUsuaris.TabIndex = 2;
-            this.buttonGestioUsuaris.Text = "                 Gestió d\'usuaris";
-            this.buttonGestioUsuaris.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonGestioUsuaris.UseVisualStyleBackColor = true;
-            this.buttonGestioUsuaris.Click += new System.EventHandler(this.buttonGestioUsuaris_Click);
             // 
             // panel2
             // 
@@ -205,6 +160,93 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "CERCLE";
             // 
+            // sidebarTimer
+            // 
+            this.sidebarTimer.Interval = 7;
+            this.sidebarTimer.Tick += new System.EventHandler(this.sidebarTimer_Tick);
+            // 
+            // panelCargarForms
+            // 
+            this.panelCargarForms.Controls.Add(this.pictureBox1);
+            this.panelCargarForms.Location = new System.Drawing.Point(243, 0);
+            this.panelCargarForms.Name = "panelCargarForms";
+            this.panelCargarForms.Size = new System.Drawing.Size(821, 569);
+            this.panelCargarForms.TabIndex = 1;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::GestioCercleCultural.Properties.Resources.imgCCLogoBlancoyNegro;
+            this.pictureBox1.Location = new System.Drawing.Point(694, 449);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(142, 135);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // buttonReservesSuport
+            // 
+            this.buttonReservesSuport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonReservesSuport.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonReservesSuport.Image = global::GestioCercleCultural.Properties.Resources.imgReserves;
+            this.buttonReservesSuport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonReservesSuport.Location = new System.Drawing.Point(-43, -23);
+            this.buttonReservesSuport.Name = "buttonReservesSuport";
+            this.buttonReservesSuport.Padding = new System.Windows.Forms.Padding(57, 0, 0, 0);
+            this.buttonReservesSuport.Size = new System.Drawing.Size(283, 93);
+            this.buttonReservesSuport.TabIndex = 2;
+            this.buttonReservesSuport.Text = "                 Reserves i suport";
+            this.buttonReservesSuport.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonReservesSuport.UseVisualStyleBackColor = true;
+            this.buttonReservesSuport.Click += new System.EventHandler(this.buttonReservesSuport_Click);
+            // 
+            // buttonGestioEspais
+            // 
+            this.buttonGestioEspais.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonGestioEspais.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonGestioEspais.Image = global::GestioCercleCultural.Properties.Resources.imgEspais;
+            this.buttonGestioEspais.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonGestioEspais.Location = new System.Drawing.Point(-43, -23);
+            this.buttonGestioEspais.Name = "buttonGestioEspais";
+            this.buttonGestioEspais.Padding = new System.Windows.Forms.Padding(55, 0, 0, 0);
+            this.buttonGestioEspais.Size = new System.Drawing.Size(283, 93);
+            this.buttonGestioEspais.TabIndex = 2;
+            this.buttonGestioEspais.Text = "                  Gestió d\'espais";
+            this.buttonGestioEspais.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonGestioEspais.UseVisualStyleBackColor = true;
+            this.buttonGestioEspais.Click += new System.EventHandler(this.buttonGestioEspais_Click);
+            // 
+            // buttonGestioEsdeveniments
+            // 
+            this.buttonGestioEsdeveniments.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonGestioEsdeveniments.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonGestioEsdeveniments.Image = global::GestioCercleCultural.Properties.Resources.imgEvents;
+            this.buttonGestioEsdeveniments.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonGestioEsdeveniments.Location = new System.Drawing.Point(-43, -22);
+            this.buttonGestioEsdeveniments.Name = "buttonGestioEsdeveniments";
+            this.buttonGestioEsdeveniments.Padding = new System.Windows.Forms.Padding(55, 0, 0, 0);
+            this.buttonGestioEsdeveniments.Size = new System.Drawing.Size(283, 93);
+            this.buttonGestioEsdeveniments.TabIndex = 2;
+            this.buttonGestioEsdeveniments.Text = "                 Gestió d\'esdeveniments";
+            this.buttonGestioEsdeveniments.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonGestioEsdeveniments.UseVisualStyleBackColor = true;
+            this.buttonGestioEsdeveniments.Click += new System.EventHandler(this.buttonGestioEsdeveniments_Click);
+            // 
+            // buttonGestioUsuaris
+            // 
+            this.buttonGestioUsuaris.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonGestioUsuaris.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonGestioUsuaris.Image = global::GestioCercleCultural.Properties.Resources.imgAvatarDeUsuario;
+            this.buttonGestioUsuaris.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonGestioUsuaris.Location = new System.Drawing.Point(-43, -22);
+            this.buttonGestioUsuaris.Name = "buttonGestioUsuaris";
+            this.buttonGestioUsuaris.Padding = new System.Windows.Forms.Padding(57, 0, 0, 0);
+            this.buttonGestioUsuaris.Size = new System.Drawing.Size(283, 93);
+            this.buttonGestioUsuaris.TabIndex = 2;
+            this.buttonGestioUsuaris.Text = "                 Gestió d\'usuaris";
+            this.buttonGestioUsuaris.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonGestioUsuaris.UseVisualStyleBackColor = true;
+            this.buttonGestioUsuaris.Click += new System.EventHandler(this.buttonGestioUsuaris_Click);
+            // 
             // pictureBoxLogoMenu
             // 
             this.pictureBoxLogoMenu.Image = global::GestioCercleCultural.Properties.Resources.imgLogo;
@@ -215,34 +257,6 @@
             this.pictureBoxLogoMenu.TabIndex = 0;
             this.pictureBoxLogoMenu.TabStop = false;
             this.pictureBoxLogoMenu.Click += new System.EventHandler(this.pictureBoxLogoMenu_Click);
-            // 
-            // sidebarTimer
-            // 
-            this.sidebarTimer.Interval = 7;
-            this.sidebarTimer.Tick += new System.EventHandler(this.sidebarTimer_Tick);
-            // 
-            // panelCargarForms
-            // 
-            this.panelCargarForms.Location = new System.Drawing.Point(243, 0);
-            this.panelCargarForms.Name = "panelCargarForms";
-            this.panelCargarForms.Size = new System.Drawing.Size(821, 569);
-            this.panelCargarForms.TabIndex = 1;
-            // 
-            // roundedButtonCerrarSession
-            // 
-            this.roundedButtonCerrarSession.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(195)))), ((int)(((byte)(54)))));
-            this.roundedButtonCerrarSession.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.roundedButtonCerrarSession.FlatAppearance.BorderSize = 0;
-            this.roundedButtonCerrarSession.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.roundedButtonCerrarSession.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold);
-            this.roundedButtonCerrarSession.ForeColor = System.Drawing.Color.Black;
-            this.roundedButtonCerrarSession.Location = new System.Drawing.Point(56, 507);
-            this.roundedButtonCerrarSession.Name = "roundedButtonCerrarSession";
-            this.roundedButtonCerrarSession.Size = new System.Drawing.Size(120, 50);
-            this.roundedButtonCerrarSession.TabIndex = 6;
-            this.roundedButtonCerrarSession.Text = "Cerrar sessión";
-            this.roundedButtonCerrarSession.UseVisualStyleBackColor = false;
-            this.roundedButtonCerrarSession.Click += new System.EventHandler(this.roundedButtonCerrarSession_Click);
             // 
             // Menu
             // 
@@ -263,6 +277,8 @@
             this.panelUsuari.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panelCargarForms.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogoMenu)).EndInit();
             this.ResumeLayout(false);
 
@@ -286,5 +302,6 @@
         private System.Windows.Forms.Button buttonGestioEsdeveniments;
         private System.Windows.Forms.Panel panelCargarForms;
         private RoundedButton roundedButtonCerrarSession;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
