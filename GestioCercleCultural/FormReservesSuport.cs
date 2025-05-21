@@ -18,6 +18,12 @@ namespace GestioCercleCultural
         private List<Esdeveniment> eventos;
         private int currentEventIndex = 0;
 
+
+        /// <summary>
+        /// Constructor de la clase FormReservesSuport.
+        /// </summary>
+        /// <param name="menu"> Formulario principal.</param>
+        /// <param name="usuario"> Usuario logueado.</param>
         public FormReservesSuport(Menu menu, UsuarioLogueado usuario)
         {
             InitializeComponent();
@@ -28,6 +34,9 @@ namespace GestioCercleCultural
             ConfigurarBotonesFlecha();
         }
 
+        /// <summary>
+        /// Carga los eventos desde la base de datos.
+        /// </summary>
         private void CargarEventos()
         {
             try
@@ -48,6 +57,9 @@ namespace GestioCercleCultural
             }
         }
 
+        /// <summary>
+        /// Carga el evento actual en los controles del formulario.
+        /// </summary>
         private void CargarEventoActual()
         {
             if (eventos == null || eventos.Count == 0)
@@ -66,7 +78,9 @@ namespace GestioCercleCultural
             labelFecha.Text = eventoActual.dataInici.ToString("dd/MM/yyyy HH:mm");
         }
 
-
+        /// <summary>
+        /// Muestra un mensaje cuando no hay eventos próximos.
+        /// </summary>
         private void MostrarMensajeSinEventos()
         {
             labelEventoNombre.Text = "No hay eventos próximos";
@@ -76,12 +90,20 @@ namespace GestioCercleCultural
             roundedButtonReservar.Enabled = false;
         }
 
+        /// <summary>
+        /// Configura la visibilidad de los botones de flecha.
+        /// </summary>
         private void ConfigurarBotonesFlecha()
         {
             pictureBoxFechaDerecha.Visible = eventos?.Count > 1;
             pictureBoxIzquierda.Visible = eventos?.Count > 1;
         }
 
+        /// <summary>
+        /// Evento que se ejecuta al hacer clic en la flecha derecha.
+        /// </summary>
+        /// <param name="sender"> El objeto que envía el evento.</param>
+        /// <param name="e"> Argumentos del evento de clic en la flecha derecha.</param>
         private void pictureBoxFechaDerecha_Click(object sender, EventArgs e)
         {
             if (currentEventIndex < eventos.Count - 1)
@@ -92,12 +114,20 @@ namespace GestioCercleCultural
             ActualizarEstadoFlechas();
         }
 
+        /// <summary>
+        /// Actualiza la visibilidad de las flechas según el índice del evento actual.
+        /// </summary>
         private void ActualizarEstadoFlechas()
         {
             pictureBoxIzquierda.Visible = currentEventIndex > 0;
             pictureBoxFechaDerecha.Visible = currentEventIndex < eventos.Count - 1;
         }
 
+        /// <summary>
+        /// Evento que se ejecuta al hacer clic en el botón de reservar.
+        /// </summary>
+        /// <param name="sender"> El objeto que envía el evento.</param>
+        /// <param name="e"> Argumentos del evento de clic en el botón de reservar.</param>
         private void roundedButtonReservar_Click(object sender, EventArgs e)
         {
             var formReserva = new FormReservaUsuari(usuarioActual, eventos[currentEventIndex]);
@@ -105,6 +135,11 @@ namespace GestioCercleCultural
             menuPrincipal.CambiarFormulario(formReserva);
         }
 
+        /// <summary>
+        /// Evento que se ejecuta al hacer clic en la flecha izquierda.
+        /// </summary>
+        /// <param name="sender"> El objeto que envía el evento.</param>
+        /// <param name="e"> Argumentos del evento de clic en la flecha izquierda.</param>
         private void pictureBoxIzquierda_Click(object sender, EventArgs e)
         {
             if (currentEventIndex > 0)

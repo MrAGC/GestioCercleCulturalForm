@@ -78,6 +78,14 @@ namespace GestioCercleCultural.Models.Controllers
         /// <param name="nom"> Nombre del usuario.</param>
         /// <param name="email"> Email del usuario.</param>
         /// <param name="contrasenya"> Contraseña del usuario.</param>
+        /// <param name="tipusUsuari"> Tipo de usuario.</param>
+        /// <param name="idioma"> Idioma del usuario.</param>
+        /// <summary>
+        /// Inserta un nuevo usuario en la base de datos.
+        /// </summary>
+        /// <param name="nom"> Nombre del usuario.</param>
+        /// <param name="email"> Email del usuario.</param>
+        /// <param name="contrasenya"> Contraseña del usuario.</param>
         /// <param name="tipusUsuari"> Tipo de usuario (ADMIN o NORMAL).</param>
         /// <param name="idioma"> Idioma del usuario.</param>
         public static void Insert(string nom, string email, string contrasenya, string tipusUsuari, string idioma)
@@ -165,6 +173,14 @@ namespace GestioCercleCultural.Models.Controllers
         }
 
         /// <summary>
+        /// Actualiza un usuario en la base de datos.
+        /// </summary>
+        /// <param name="id"> ID del usuario.</param>
+        /// <param name="nom"> Nombre del usuario.</param>
+        /// <param name="email"> Email del usuario.</param>
+        /// <param name="tipusUsuari"> Tipo de usuario.</param>
+        /// <param name="idioma"> Idioma del usuario.</param>
+        /// <summary>
         /// Actualiza la información de un usuario en la base de datos.
         /// </summary>
         /// <param name="id"> ID del usuario a actualizar.</param>
@@ -197,7 +213,7 @@ namespace GestioCercleCultural.Models.Controllers
         }
 
         /// <summary>
-        /// Elimina un usuario y todas sus reservas y eventos asociados.
+        /// Elimina un usuario y todos sus datos relacionados de la base de datos.
         /// </summary>
         /// <param name="usuariId"> ID del usuario a eliminar.</param>
         /// <exception cref="Exception"> Lanza una excepción si ocurre un error durante la eliminación.</exception>

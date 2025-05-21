@@ -9,6 +9,18 @@ namespace GestioCercleCultural.Models.Controllers
 {
     internal class EsdevenimentOrm
     {
+        /// <summary>
+        /// Método para insertar un nuevo evento en la base de datos.
+        /// </summary>
+        /// <param name="nom"> Nombre del evento.</param>
+        /// <param name="descripcio"> Descripción del evento.</param>
+        /// <param name="dataInici"> Fecha y hora de inicio del evento.</param>
+        /// <param name="dataFi"> Fecha y hora de fin del evento.</param>
+        /// <param name="aforament"> Aforo del evento.</param>
+        /// <param name="espaiId"> ID del espacio asociado al evento.</param>
+        /// <param name="usuariId"> ID del usuario que crea el evento.</param>
+        /// <param name="imatge"> Ruta de la imagen asociada al evento.</param>
+        /// <param name="perInfants"> Indica si el evento es para niños.</param>
         public static void Insert(string nom, string descripcio, DateTime dataInici, DateTime dataFi,
                                 int aforament, int espaiId, int usuariId, string imatge, bool perInfants)
         {
@@ -39,6 +51,12 @@ namespace GestioCercleCultural.Models.Controllers
             }
         }
 
+        /// <summary>
+        /// Método para seleccionar un evento por su nombre.
+        /// </summary>
+        /// <param name="nom"> Nombre del evento.</param>
+        /// <returns></returns>
+        /// <exception cref="Exception"> Lanza una excepción si no se encuentra el evento.</exception>
         public static int SelectIdByName(string nom)
         {
             using (var context = new CercleCulturalEntities1())
@@ -53,6 +71,11 @@ namespace GestioCercleCultural.Models.Controllers
             }
         }
 
+        /// <summary>
+        /// Método para seleccionar eventos por el ID del espacio.
+        /// </summary>
+        /// <param name="idEspai"> ID del espacio.</param>
+        /// <returns></returns>
         public static DataTable SelectEventosByIdEspai(int idEspai)
         {
             DataTable dt = new DataTable();
@@ -75,6 +98,10 @@ namespace GestioCercleCultural.Models.Controllers
             return dt;
         }
 
+        /// <summary>
+        /// Método para seleccionar todos los eventos.
+        /// </summary>
+        /// <returns></returns>
         public static DataTable SelectAll()
         {
             DataTable dt = new DataTable();
@@ -112,6 +139,19 @@ namespace GestioCercleCultural.Models.Controllers
             return dt;
         }
 
+        /// <summary>
+        /// Método para actualizar un evento existente.
+        /// </summary>
+        /// <param name="id"> ID del evento a actualizar.</param>
+        /// <param name="nom"> Nombre del evento.</param>
+        /// <param name="descripcio"> Descripción del evento.</param>
+        /// <param name="dataInici"> Fecha y hora de inicio del evento.</param>
+        /// <param name="dataFi"> Fecha y hora de fin del evento.</param>
+        /// <param name="aforament"> Aforo del evento.</param>
+        /// <param name="espaiId"> ID del espacio asociado al evento.</param>
+        /// <param name="usuariId"> ID del usuario que crea el evento.</param>
+        /// <param name="imatge"> Ruta de la imagen asociada al evento.</param>
+        /// <param name="perInfants"> Indica si el evento es para niños.</param>
         public static void Update(int id, string nom, string descripcio, DateTime dataInici, DateTime dataFi,
                                 int aforament, int espaiId, int usuariId, string imatge, bool perInfants)
         {
@@ -143,7 +183,10 @@ namespace GestioCercleCultural.Models.Controllers
         }
 
 
-        // En EsdevenimentOrm
+        /// <summary>
+        /// Método para eliminar un evento completo, incluyendo reservas y asientos.
+        /// </summary>
+        /// <param name="eventId"> ID del evento a eliminar.</param>
         public static void DeleteEventoCompleto(int eventId)
         {
             using (var context = new CercleCulturalEntities1())
@@ -188,6 +231,11 @@ namespace GestioCercleCultural.Models.Controllers
             }
         }
 
+        /// <summary>
+        /// Método para seleccionar eventos por el ID del usuario.
+        /// </summary>
+        /// <param name="userId"> ID del usuario.</param>
+        /// <returns></returns>
         public static DataTable SelectByUser(int userId)
         {
             DataTable dt = new DataTable();

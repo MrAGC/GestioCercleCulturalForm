@@ -14,6 +14,11 @@ namespace GestioCercleCultural
         private readonly bool _tieneButacas;
         private int _aforoRestante;
 
+        /// <summary>
+        /// Constructor de la clase FormReservaUsuari.
+        /// </summary>
+        /// <param name="usuario"> El usuario logueado.</param>
+        /// <param name="evento"> El evento para el cual se realiza la reserva.</param>
         public FormReservaUsuari(UsuarioLogueado usuario, Esdeveniment evento)
         {
             InitializeComponent();
@@ -30,6 +35,9 @@ namespace GestioCercleCultural
             ActualizarDisponibilidad();
         }
 
+        /// <summary>
+        /// Carga los datos iniciales en los controles del formulario.
+        /// </summary>
         private void CargarDatosIniciales()
         {
             using (var context = new CercleCulturalEntities1())
@@ -42,6 +50,9 @@ namespace GestioCercleCultural
             }
         }
 
+        /// <summary>
+        /// Actualiza la disponibilidad de entradas para el evento.
+        /// </summary>
         private void ActualizarDisponibilidad()
         {
             using (var context = new CercleCulturalEntities1())
@@ -73,6 +84,11 @@ namespace GestioCercleCultural
             }
         }
 
+        /// <summary>
+        /// Evento que se ejecuta al hacer clic en el botón de reservar.
+        /// </summary>
+        /// <param name="sender"> El objeto que envía el evento.</param>
+        /// <param name="e"> Argumentos del evento de clic.</param>
         private void roundedButtonReservar_Click(object sender, EventArgs e)
         {
             if (!ValidarReserva()) return;
@@ -113,6 +129,10 @@ namespace GestioCercleCultural
             }
         }
 
+        /// <summary>
+        /// Valida la reserva antes de proceder.
+        /// </summary>
+        /// <returns></returns>
         private bool ValidarReserva()
         {
             if (comboBoxSeleccionarUsuari.SelectedIndex < 0)
@@ -130,6 +150,12 @@ namespace GestioCercleCultural
             return true;
         }
 
+        /// <summary>
+        /// Crea una reserva en la base de datos.
+        /// </summary>
+        /// <param name="context"> El contexto de la base de datos.</param>
+        /// <param name="numEntradas"> Número de entradas a reservar.</param>
+        /// <returns></returns>
         private Reserva CrearReserva(CercleCulturalEntities1 context, int numEntradas)
         {
             var reserva = new Reserva
@@ -150,6 +176,12 @@ namespace GestioCercleCultural
             return reserva;
         }
 
+        /// <summary>
+        /// Obtiene los estados de los asientos para un evento específico.
+        /// </summary>
+        /// <param name="seientIds"> Lista de IDs de asientos.</param>
+        /// <param name="esdevenimentId"> ID del evento.</param>
+        /// <returns></returns>
         public Dictionary<int, string> ObtenerEstadosAsientosParaEvento(List<int> seientIds, int esdevenimentId)
         {
             var estados = new Dictionary<int, string>();
@@ -188,6 +220,13 @@ namespace GestioCercleCultural
             return estados;
         }
 
+        /// <summary>
+        /// Reserva asientos para un evento específico.
+        /// </summary>
+        /// <param name="context"> El contexto de la base de datos.</param>
+        /// <param name="numEntradas"> Número de entradas a reservar.</param>
+        /// <param name="reserva"> La reserva a la que se asignarán los asientos.</param>
+        /// <exception cref="Exception"> Lanza una excepción si no hay suficientes asientos disponibles.</exception>
         private void ReservarAsientos(CercleCulturalEntities1 context, int numEntradas, Reserva reserva)
         {
             // Obtener asientos disponibles para este evento  
@@ -209,6 +248,9 @@ namespace GestioCercleCultural
             }
         }
 
+        /// <summary>
+        /// Actualiza la interfaz después de realizar una reserva.
+        /// </summary>
         private void ActualizarInterfazPostReserva()
         {
             // Mantener selección de usuario

@@ -23,12 +23,19 @@ namespace GestioCercleCultural
         int rolIndex;
         private UsuarioLogueado usuarioActual;
 
+        /// <summary>
+        /// Constructor de la clase FormGestioUsuaris.
+        /// </summary>
+        /// <param name="usuario"> El usuario logueado.</param>
         public FormGestioUsuaris(UsuarioLogueado usuario)
         {
             InitializeComponent();
             usuarioActual = usuario;
         }
 
+        /// <summary>
+        /// Initializes the components of the form.
+        /// </summary>
         private void InitializeComponent()
         {
             this.label8 = new System.Windows.Forms.Label();
@@ -338,6 +345,11 @@ namespace GestioCercleCultural
 
         }
 
+        /// <summary>
+        /// Carga los usuarios al iniciar el formulario.
+        /// </summary>
+        /// <param name="sender"> El objeto que envía el evento.</param>
+        /// <param name="e"> Los argumentos del evento.</param>
         private void FormGestioUsuaris_Load(object sender, EventArgs e)
         {
             this.AutoScroll = false;
@@ -345,6 +357,9 @@ namespace GestioCercleCultural
             CargarValoresComboBox();
         }
 
+        /// <summary>
+        /// Carga los valores de los ComboBox.
+        /// </summary>
         private void CargarValoresComboBox()
         {
             // Rol
@@ -360,15 +375,18 @@ namespace GestioCercleCultural
             comboBoxConSombraIdioma.SelectedIndex = 0;
         }
 
+        /// <summary>
+        /// Carga los usuarios en el ComboBox.
+        /// </summary>
         private void CargarUsuaris()
         {
             try
             {
                 usuaris = UsuariOrm.SelectAll();
 
-                // Añadir fila vacía para selección
+
                 DataRow newRow = usuaris.NewRow();
-                newRow["id"] = -1; // Añadir ID
+                newRow["id"] = -1;
                 newRow["nom"] = "Seleccionar usuari";
                 newRow["email"] = "";
                 usuaris.Rows.InsertAt(newRow, 0);
@@ -383,6 +401,11 @@ namespace GestioCercleCultural
             }
         }
 
+        /// <summary>
+        /// Manejador de eventos para el botón "Eliminar Usuari".
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void comboBoxSeleccionarUsuari_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBoxSeleccionarUsuari.SelectedItem != null)
@@ -418,28 +441,29 @@ namespace GestioCercleCultural
             }
         }
 
+        /// <summary>
+        /// Carga las reservas del usuario seleccionado.
+        /// </summary>
+        /// <param name="userId"> ID del usuario.</param>
         private void CargarReservasUsuario(int userId)
         {
             try
             {
                 DataTable reservas = ReservaOrm.SelectByUser(userId);
 
-                // Crear nuevo DataTable para el combo
                 DataTable dtCombo = new DataTable();
                 dtCombo.Columns.Add("Display", typeof(string));
                 dtCombo.Columns.Add("id", typeof(int));
 
                 if (reservas.Rows.Count == 0)
                 {
-                    // Caso sin reservas
                     dtCombo.Rows.Add("No hay reservas", -1);
                 }
                 else
                 {
-                    // Añadir opción de selección
+
                     dtCombo.Rows.Add("Seleccionar reserva", -1);
 
-                    // Añadir reservas reales
                     foreach (DataRow row in reservas.Rows)
                     {
                         string displayText = $"Reserva {row["id"]} - {row["tipus"]}";
@@ -450,7 +474,7 @@ namespace GestioCercleCultural
                 comboBoxConSombraReserves.DataSource = dtCombo;
                 comboBoxConSombraReserves.DisplayMember = "Display";
                 comboBoxConSombraReserves.ValueMember = "id";
-                comboBoxConSombraReserves.SelectedIndex = 0; // Seleccionar primer item
+                comboBoxConSombraReserves.SelectedIndex = 0;
             }
             catch (Exception ex)
             {
@@ -458,6 +482,11 @@ namespace GestioCercleCultural
             }
         }
 
+        /// <summary>
+        /// Manejador de eventos para el botón "Eliminar Reserva".
+        /// </summary>
+        /// <param name="sender"> El objeto que envía el evento.</param>
+        /// <param name="e"> Los argumentos del evento.</param>
         private void roundedButtonConfirmarUsuari_Click(object sender, EventArgs e)
         {
             if (!ValidarCampos()) return;
@@ -530,6 +559,11 @@ namespace GestioCercleCultural
             roundedButtonEliminarReserva.Visible = false;
         }
 
+        /// <summary>
+        /// Manejador de eventos para el botón "Crear Usuari".
+        /// </summary>
+        /// <param name="sender"> El objeto que envía el evento.</param>
+        /// <param name="e"> Los argumentos del evento.</param>
         private void roundedButtonCrearUsuari_Click_1(object sender, EventArgs e)
         {
             crear = true;
@@ -550,6 +584,9 @@ namespace GestioCercleCultural
             comboBoxConSombraReserves.DataSource = dtVacio;
         }
 
+        /// <summary>
+        /// Limpia los campos del formulario.
+        /// </summary>
         private void LimpiarCampos()
         {
             textBoxNom.Text = "";
@@ -558,6 +595,11 @@ namespace GestioCercleCultural
             textBoxConfirmarContrasenya.Text = "";
             CargarValoresComboBox();
         }
+
+        /// <summary>
+        /// Validates the input fields.
+        /// </summary>
+        /// <returns></returns>
         private bool ValidarCampos()
         {
             // Acumulador de errores
@@ -599,6 +641,12 @@ namespace GestioCercleCultural
             return true;
         }
 
+
+        /// <summary>
+        /// Manejador de eventos para el ComboBox de idioma.
+        /// </summary>
+        /// <param name="sender"> El objeto que envía el evento.</param>
+        /// <param name="e"> Los argumentos del evento.</param>
         private void comboBoxConSombraIdioma_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Aquí guarda el indice del idioma seleccionat
@@ -607,12 +655,23 @@ namespace GestioCercleCultural
 
         }
 
+        /// <summary>
+        /// Manejador de eventos para el ComboBox de rol.
+        /// </summary>
+        /// <param name="sender"> El objeto que envía el evento.</param>
+        /// <param name="e"> Los argumentos del evento.</param>
         private void comboBoxRol_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Aquí guarda el indice del rol seleccionat
             rolIndex = comboBoxRol.SelectedIndex;
         }
 
+
+        /// <summary>
+        /// Manejador de eventos para el botón "Eliminar Usuari".
+        /// </summary>
+        /// <param name="sender"> El objeto que envía el evento.</param>
+        /// <param name="e"> Los argumentos del evento.</param>
         private void roundedButtonEliminarUsuari_Click(object sender, EventArgs e)
         {
 
@@ -644,6 +703,11 @@ namespace GestioCercleCultural
 
         }
 
+        /// <summary>
+        /// Manejador de eventos para el botón "Eliminar Reserva".
+        /// </summary>
+        /// <param name="sender"> El objeto que envía el evento.</param>
+        /// <param name="e"> Los argumentos del evento.</param>
         private void roundedButtonEliminarReserva_Click(object sender, EventArgs e)
         {
             if (comboBoxConSombraReserves.SelectedItem == null ||
