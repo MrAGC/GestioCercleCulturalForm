@@ -11,6 +11,11 @@ namespace GestioCercleCultural.Models.Controllers
 {
     internal class UsuariOrm
     {
+        /// <summary>
+        /// Encripta una cadena de texto utilizando el algoritmo MD5.
+        /// </summary>
+        /// <param name="input"> Cadena de texto a encriptar.</param>
+        /// <returns></returns>
         private static string EncriptarMD5(string input)
         {
             using (MD5 md5 = MD5.Create())
@@ -22,6 +27,12 @@ namespace GestioCercleCultural.Models.Controllers
             }
         }
 
+        /// <summary>
+        /// Realiza el login de un usuario.
+        /// </summary>
+        /// <param name="email"> Email del usuario.</param>
+        /// <param name="contrasenya"> Contraseña del usuario.</param>
+        /// <returns></returns>
         public static UsuarioLogueado Login(string email, string contrasenya)
         {
             try
@@ -61,6 +72,14 @@ namespace GestioCercleCultural.Models.Controllers
             }
         }
 
+        /// <summary>
+        /// Inserta un nuevo usuario en la base de datos.
+        /// </summary>
+        /// <param name="nom"> Nombre del usuario.</param>
+        /// <param name="email"> Email del usuario.</param>
+        /// <param name="contrasenya"> Contraseña del usuario.</param>
+        /// <param name="tipusUsuari"> Tipo de usuario.</param>
+        /// <param name="idioma"> Idioma del usuario.</param>
         public static void Insert(string nom, string email, string contrasenya, string tipusUsuari, string idioma)
         {
             try
@@ -88,6 +107,11 @@ namespace GestioCercleCultural.Models.Controllers
             }
         }
 
+        /// <summary>
+        /// Verifica si un email ya existe en la base de datos.
+        /// </summary>
+        /// <param name="email"> Email a verificar.</param>
+        /// <returns></returns>
         public static bool EmailExists(string email)
         {
             try
@@ -104,6 +128,10 @@ namespace GestioCercleCultural.Models.Controllers
             }
         }
 
+        /// <summary>
+        /// Selecciona todos los usuarios de la base de datos.
+        /// </summary>
+        /// <returns></returns>
         public static DataTable SelectAll()
         {
             DataTable dt = new DataTable();
@@ -136,6 +164,14 @@ namespace GestioCercleCultural.Models.Controllers
             return dt;
         }
 
+        /// <summary>
+        /// Actualiza un usuario en la base de datos.
+        /// </summary>
+        /// <param name="id"> ID del usuario.</param>
+        /// <param name="nom"> Nombre del usuario.</param>
+        /// <param name="email"> Email del usuario.</param>
+        /// <param name="tipusUsuari"> Tipo de usuario.</param>
+        /// <param name="idioma"> Idioma del usuario.</param>
         public static void Update(int id, string nom, string email, string tipusUsuari, string idioma)
         {
             try
@@ -160,7 +196,11 @@ namespace GestioCercleCultural.Models.Controllers
             }
         }
 
-
+        /// <summary>
+        /// Elimina un usuario y todos sus datos relacionados de la base de datos.
+        /// </summary>
+        /// <param name="usuariId"> ID del usuario a eliminar.</param>
+        /// <exception cref="Exception"> Lanza una excepción si ocurre un error durante la eliminación.</exception>
         public static void DeleteAll(int usuariId)
         {
             using (var context = new CercleCulturalEntities1())

@@ -26,6 +26,11 @@ namespace GestioCercleCultural
         private List<TimeSpan> horasOcupadas = new List<TimeSpan>();
         private int? currentEventId = null;
 
+
+        /// <summary>
+        /// Constructor de la clase FormGestioEsdeveniments.
+        /// </summary>
+        /// <param name="usuario"> El usuario logueado.</param>
         public FormGestioEsdeveniments(UsuarioLogueado usuario)
         {
             InitializeComponent();
@@ -34,6 +39,9 @@ namespace GestioCercleCultural
             InicializarHoras();
         }
 
+        /// <summary>
+        /// Inicializa la lista de horas disponibles para los eventos.
+        /// </summary>
         private void InicializarHoras()
         {
             for (int hora = 8; hora <= 22; hora++)
@@ -44,6 +52,10 @@ namespace GestioCercleCultural
             todasHoras.Add(new TimeSpan(23, 0, 0));
         }
 
+
+        /// <summary>
+        /// Configura los TextBox para que no se pueda usar la tecla Enter.
+        /// </summary>
         private void ConfigureTextBoxes()
         {
             void SuppressEnter(object sender, KeyEventArgs e)
@@ -61,6 +73,12 @@ namespace GestioCercleCultural
             textBoxConSombraPlaces.KeyDown += SuppressEnter;
         }
 
+
+        /// <summary>
+        /// Evento que se ejecuta al cargar el formulario.
+        /// </summary>
+        /// <param name="sender"> El objeto que envía el evento.</param>
+        /// <param name="e"> Los argumentos del evento.</param>
         private void FormGestioEsdeveniments_Load(object sender, EventArgs e)
         {
             textBoxConSombraUbicacioEsdeveniment.ReadOnly = true;
@@ -72,6 +90,10 @@ namespace GestioCercleCultural
 
         }
 
+
+        /// <summary>
+        /// Carga los datos iniciales del formulario, como los espacios y eventos.
+        /// </summary>
         private void CargarDatosIniciales()
         {
             try
@@ -86,6 +108,9 @@ namespace GestioCercleCultural
             }
         }
 
+        /// <summary>
+        /// Configura los eventos de los controles del formulario.
+        /// </summary>
         private void ConfigurarEventos()
         {
             dateTimePickerConSombraDiaEsdeveniment.ValueChanged += (s, ev) => CargarHorasDisponibles();
@@ -93,6 +118,9 @@ namespace GestioCercleCultural
             comboBoxConSombraHoraEsdevenimentInici.SelectedIndexChanged += ComboBoxHoraInicio_SelectedIndexChanged;
         }
 
+        /// <summary>
+        /// Carga los espacios disponibles en el comboBox.
+        /// </summary>
         private void CargarEspais()
         {
             espais = EspaiOrm.SelectAll();
@@ -117,6 +145,10 @@ namespace GestioCercleCultural
             comboBoxConSombraEspaiEsdeveniment.SelectedIndex = espais.Rows.Count > 0 ? 0 : -1;
         }
 
+
+        /// <summary>
+        /// Carga los eventos disponibles en el comboBox.
+        /// </summary>
         private void CargarEsdeveniments()
         {
             esdeveniments = usuarioActual.TipoUsuario == "SUPERUSUARI"
@@ -147,6 +179,10 @@ namespace GestioCercleCultural
             comboBoxSeleccionarEsdeveniment.SelectedIndex = esdeveniments.Rows.Count > 0 ? 0 : -1;
         }
 
+
+        /// <summary>
+        /// Carga las horas disponibles para el evento seleccionado.
+        /// </summary>
         private void CargarHorasDisponibles()
         {
             if (comboBoxConSombraEspaiEsdeveniment.SelectedIndex <= 0 ||
@@ -177,6 +213,11 @@ namespace GestioCercleCultural
             ActualizarComboHoras(comboBoxConSombraHoraEsdevenimentInici, horasInicio);
         }
 
+        /// <summary>
+        /// Evento que se ejecuta al cambiar la hora de inicio del evento.
+        /// </summary>
+        /// <param name="sender"> El objeto que envía el evento.</param>
+        /// <param name="e"> Los argumentos del evento.</param>
         private void ComboBoxHoraInicio_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBoxConSombraHoraEsdevenimentInici.SelectedItem == null) return;
@@ -209,6 +250,14 @@ namespace GestioCercleCultural
             ActualizarComboHoras(comboBoxConSombraHoraEsdevenimentFi, horasFin);
         }
 
+
+        /// <summary>
+        /// Verifica si el intervalo de tiempo está solapado con las horas ocupadas.
+        /// </summary>
+        /// <param name="inicio"> Hora de inicio del evento.</param>
+        /// <param name="fin"> Hora de fin del evento.</param>
+        /// <param name="ocupadas"> Lista de horas ocupadas.</param>
+        /// <returns></returns>
         private bool IntervaloSolapado(TimeSpan inicio, TimeSpan fin, List<TimeSpan> ocupadas)
         {
             for (int i = 0; i < ocupadas.Count; i += 2)
@@ -219,6 +268,12 @@ namespace GestioCercleCultural
             return false;
         }
 
+
+        /// <summary>
+        /// Actualiza el comboBox de horas con las horas disponibles.
+        /// </summary>
+        /// <param name="combo"> ComboBox a actualizar.</param>
+        /// <param name="horas"> Lista de horas disponibles.</param>
         private void ActualizarComboHoras(ComboBoxConSombra combo, List<TimeSpan> horas)
         {
             combo.Items.Clear();
@@ -228,6 +283,12 @@ namespace GestioCercleCultural
             combo.SelectedIndex = combo.Items.Count > 0 ? 0 : -1;
         }
 
+
+        /// <summary>
+        /// Evento que se ejecuta al cambiar el espacio del evento.
+        /// </summary>
+        /// <param name="sender"> El objeto que envía el evento.</param>
+        /// <param name="e"> Los argumentos del evento.</param>
         private void ComboBoxEspai_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBoxConSombraEspaiEsdeveniment.SelectedIndex <= 0)
@@ -252,6 +313,11 @@ namespace GestioCercleCultural
             CargarHorasDisponibles();
         }
 
+        /// <summary>
+        /// Evento que se ejecuta al salir del TextBox de plazas.
+        /// </summary>
+        /// <param name="sender"> El objeto que envía el evento.</param>
+        /// <param name="e"> Los argumentos del evento.</param>
         private void TextBoxConSombraPlaces_Leave(object sender, EventArgs e)
         {
             if (comboBoxConSombraEspaiEsdeveniment.SelectedIndex <= 0) return;
@@ -265,6 +331,11 @@ namespace GestioCercleCultural
                 textBoxConSombraPlaces.Text = maxCap.ToString();
         }
 
+        /// <summary>
+        /// Evento que se ejecuta al cambiar el evento seleccionado.
+        /// </summary>
+        /// <param name="sender"> El objeto que envía el evento.</param>
+        /// <param name="e"> Los argumentos del evento.</param>
         private void ComboBoxSeleccionarEsdeveniment_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBoxSeleccionarEsdeveniment.SelectedIndex == 0)
@@ -292,6 +363,9 @@ namespace GestioCercleCultural
             comboBoxConSombraEspaiEsdeveniment.SelectedValue = row["espai_id"];
         }
 
+        /// <summary>
+        /// Limpia los campos del formulario.
+        /// </summary>
         private void LimpiarCampos()
         {
             textBoxNomEsdeveniment.Text = "";
@@ -307,6 +381,12 @@ namespace GestioCercleCultural
                 comboBoxConSombraEspaiEsdeveniment.SelectedIndex = 0;
         }
 
+
+        /// <summary>
+        /// Evento que se ejecuta al hacer clic en el botón de eliminar evento.
+        /// </summary>
+        /// <param name="sender"> El objeto que envía el evento.</param>
+        /// <param name="e"> Los argumentos del evento.</param>
         private void roundedButtonEliminarEvent_Click_1(object sender, EventArgs e)
         {
             if (comboBoxSeleccionarEsdeveniment.SelectedIndex == 0) return;
@@ -318,6 +398,11 @@ namespace GestioCercleCultural
             CargarEsdeveniments();
         }
 
+        /// <summary>
+        /// Evento que se ejecuta al hacer clic en el botón de confirmar evento.
+        /// </summary>
+        /// <param name="sender"> El objeto que envía el evento.</param>
+        /// <param name="e"> Los argumentos del evento.</param>
         private void roundedButtonConfirmarEvento_Click_1(object sender, EventArgs e)
         {
             if (!ValidarCampos()) return;
@@ -399,6 +484,10 @@ namespace GestioCercleCultural
             }
         }
 
+        /// <summary>
+        /// Valida los campos del formulario antes de crear o actualizar un evento.
+        /// </summary>
+        /// <returns></returns>
         private bool ValidarCampos()
         {
             var errores = new StringBuilder();
@@ -431,6 +520,11 @@ namespace GestioCercleCultural
             return true;
         }
 
+        /// <summary>
+        /// Evento que se ejecuta al hacer clic en el botón de crear evento.
+        /// </summary>
+        /// <param name="sender"> El objeto que envía el evento.</param>
+        /// <param name="e"> Los argumentos del evento.</param>
         private void roundedButtonCrearEsdeveniment_Click_1(object sender, EventArgs e)
         {
             crear = true;
@@ -439,6 +533,11 @@ namespace GestioCercleCultural
             CargarEsdeveniments();
         }
 
+        /// <summary>
+        /// Evento que se ejecuta al salir del TextBox de plazas.
+        /// </summary>
+        /// <param name="sender"> El objeto que envía el evento.</param>
+        /// <param name="e"> Los argumentos del evento.</param>
         private void textBoxConSombraPlaces_Leave_1(object sender, EventArgs e)
         {
             if (comboBoxConSombraEspaiEsdeveniment.SelectedIndex <= 0) return;
@@ -456,6 +555,11 @@ namespace GestioCercleCultural
             }
         }
 
+        /// <summary>
+        /// Evento que se ejecuta al hacer clic en el botón de generar descripción con IA.
+        /// </summary>
+        /// <param name="sender"> El objeto que envía el evento.</param>
+        /// <param name="e"> Los argumentos del evento.</param>
         private async void roundedButtonGenerarDescripcioIA_Click(object sender, EventArgs e)
         {
             // Validar campo obligatorio.
@@ -482,23 +586,23 @@ namespace GestioCercleCultural
 
                 // Construir prompt mejorado
                 string promptIA = $@"
-        ACTÚA COMO REDACTOR PROFESIONAL PARA EVENTOS CULTURALES.
-        GENERA UNA DESCRIPCIÓN USANDO ESTOS DATOS:
+                ACTÚA COMO REDACTOR PROFESIONAL PARA EVENTOS CULTURALES.
+                GENERA UNA DESCRIPCIÓN USANDO ESTOS DATOS:
 
-        {datosEvento}
+                {datosEvento}
 
-        REQUISITOS:
-        - Estilo: {(new[] { "formal", "coloquial", "narrativo" }[new Random().Next(3)])}
-        - Longitud: 180-200 caracteres
-        - Estructura: 2-3 frases impactantes
-        - Incluir: Localización, fecha/hora y aforo
-        - Add emojis relevantes (max 2)
-        - Formato JSON válido ÚNICAMENTE con 'descripcion'
+                REQUISITOS:
+                - Estilo: {(new[] { "formal", "coloquial", "narrativo" }[new Random().Next(3)])}
+                - Longitud: 180-200 caracteres
+                - Estructura: 2-3 frases impactantes
+                - Incluir: Localización, fecha/hora y aforo
+                - Add emojis relevantes (max 2)
+                - Formato JSON válido ÚNICAMENTE con 'descripcion'
 
-        EJEMPLO VÁLIDO:
-        {{
-            ""descripcion"": ""Concierto de jazz nocturno 🎷 en el Auditorio Municipal (18/11/2024, 20:30). Disfruta de la Big Band con repertorio clásico y aforo exclusivo para {textBoxConSombraPlaces.Text} personas. ¡Reserva ya tu experiencia musical!""
-        }}";
+                EJEMPLO VÁLIDO:
+                {{
+                    ""descripcion"": ""Concierto de jazz nocturno 🎷 en el Auditorio Municipal (18/11/2024, 20:30). Disfruta de la Big Band con repertorio clásico y aforo exclusivo para {textBoxConSombraPlaces.Text} personas. ¡Reserva ya tu experiencia musical!""
+                }}";
 
                 var client = new RestClient("https://api.groq.com/openai/v1/chat/completions");
                 var request = new RestRequest("", Method.Post);

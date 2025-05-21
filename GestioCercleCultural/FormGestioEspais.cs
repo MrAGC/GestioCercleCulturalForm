@@ -19,6 +19,10 @@ namespace GestioCercleCultural
         private bool crear = true;
         private UsuarioLogueado usuarioActual;
 
+        /// <summary>
+        /// Constructor de la clase FormGestioEspais.
+        /// </summary>
+        /// <param name="usuario"> El usuario logueado.</param>
         public FormGestioEspais(UsuarioLogueado usuario)
         {
             InitializeComponent();
@@ -29,6 +33,11 @@ namespace GestioCercleCultural
             comboBoxSeleccionarEspai.SelectedIndexChanged += ComboBoxSeleccionarEspai_SelectedIndexChanged;
         }
 
+        /// <summary>
+        /// Evento que se ejecuta al cargar el formulario.
+        /// </summary>
+        /// <param name="sender"> El objeto que genera el evento.</param>
+        /// <param name="e"> Los argumentos del evento.</param>
         private void FormGestioEspais_Load(object sender, EventArgs e)
         {
             try
@@ -44,6 +53,9 @@ namespace GestioCercleCultural
             }
         }
 
+        /// <summary>
+        /// Carga los espacios en el comboBox.
+        /// </summary>
         private void CargarEspais()
         {
             espais = EspaiOrm.SelectAll();
@@ -68,7 +80,11 @@ namespace GestioCercleCultural
             comboBoxSeleccionarEspai.SelectedIndex = espais.Rows.Count > 0 ? 0 : -1;
         }
 
-
+        /// <summary>
+        /// Evento que se ejecuta al cambiar la selección del comboBox de espacios.
+        /// </summary>
+        /// <param name="sender"> El objeto que genera el evento.</param>
+        /// <param name="e"> Los argumentos del evento.</param>
         private void ComboBoxSeleccionarEspai_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -137,6 +153,11 @@ namespace GestioCercleCultural
             }
         }
 
+        /// <summary>
+        /// Evento que se ejecuta al hacer clic en el botón de confirmar.
+        /// </summary>
+        /// <param name="sender"> El objeto que genera el evento.</param>
+        /// <param name="e"> Los argumentos del evento.</param>
         private void RoundedButtonConfirmarEspai_Click(object sender, EventArgs e)
         {
             if (!ValidarCampos()) return;
@@ -201,6 +222,11 @@ namespace GestioCercleCultural
             }
         }
 
+        /// <summary>
+        /// Evento que se ejecuta al hacer clic en el botón de crear espacio.
+        /// </summary>
+        /// <param name="sender"> El objeto que genera el evento.</param>
+        /// <param name="e"> Los argumentos del evento.</param>
         private void RoundedButtonCrearEspai_Click(object sender, EventArgs e)
         {
             crear = true;
@@ -208,6 +234,10 @@ namespace GestioCercleCultural
             comboBoxSeleccionarEspai.SelectedIndex = 0;
         }
 
+
+        /// <summary>
+        /// Limpia los campos de entrada.
+        /// </summary>
         private void LimpiarCampos()
         {
             textBoxNomEspai.Text = "";
@@ -219,6 +249,10 @@ namespace GestioCercleCultural
             textBoxNumerobutaques.Text = "";
         }
 
+        /// <summary>
+        /// Valida los campos de entrada.
+        /// </summary>
+        /// <returns></returns>
         private bool ValidarCampos()
         {
             var errores = new StringBuilder();
@@ -252,6 +286,11 @@ namespace GestioCercleCultural
             return true;
         }
 
+        /// <summary>
+        /// Evento que se ejecuta al cambiar el estado del radioButton "Sí".
+        /// </summary>
+        /// <param name="sender"> El objeto que genera el evento.</param>
+        /// <param name="e"> Los argumentos del evento.</param>
         private void RadioButtonSi_CheckedChanged(object sender, EventArgs e)
         {
             bool activar = radioButtonSi.Checked;
@@ -265,6 +304,11 @@ namespace GestioCercleCultural
             }
         }
 
+        /// <summary>
+        /// Evento que se ejecuta al hacer clic en el botón de eliminar espacio.
+        /// </summary>
+        /// <param name="sender"> El objeto que genera el evento.</param>
+        /// <param name="e"> Los argumentos del evento.</param>
         private void RoundedButtonEliminarEspai_Click(object sender, EventArgs e)
         {
             if (comboBoxSeleccionarEspai.SelectedIndex <= 0)
